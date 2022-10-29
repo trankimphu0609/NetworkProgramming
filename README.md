@@ -7,6 +7,7 @@
 ## Member:
 
 | Number |Name            |
+|--------|----------------|
 | 1      |Tran Kim Phu    |
 | 2      |Tran Van Nghia  |
 | 3      |Vuong Dai Nguyen|
