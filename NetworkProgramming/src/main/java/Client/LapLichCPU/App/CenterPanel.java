@@ -16,7 +16,7 @@ import org.jfree.chart.JFreeChart;
  * @author trankimphu0609
  */
 public class CenterPanel extends JPanel {
-    
+
     public static JPanel mainPanel;
     public static ChartPanel panel;
     public static JTabbedPane jTabbedPane;

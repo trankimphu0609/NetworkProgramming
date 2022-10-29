@@ -13,12 +13,12 @@ import java.util.ArrayList;
 public class ResultAfterExecuteAlgorithm {
 
     private ArrayList<Row> rows;
-    private ArrayList<Event> timeLine;
+    private ArrayList<Event> timeline;
     private int timeQuantum;
 
-    public ResultAfterExecuteAlgorithm(ArrayList<Row> rows, ArrayList<Event> timeLine, int timeQuantum) {
+    public ResultAfterExecuteAlgorithm(ArrayList<Row> rows, ArrayList<Event> timeline, int timeQuantum) {
         this.rows = rows;
-        this.timeLine = timeLine;
+        this.timeline = timeline;
         this.timeQuantum = timeQuantum;
     }
 
@@ -30,12 +30,12 @@ public class ResultAfterExecuteAlgorithm {
         this.rows = rows;
     }
 
-    public ArrayList<Event> getTimeLine() {
-        return timeLine;
+    public ArrayList<Event> getTimeline() {
+        return timeline;
     }
 
-    public void setTimeLine(ArrayList<Event> timeLine) {
-        this.timeLine = timeLine;
+    public void setTimeline(ArrayList<Event> timeline) {
+        this.timeline = timeline;
     }
 
     public int getTimeQuantum() {

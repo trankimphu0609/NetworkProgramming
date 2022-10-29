@@ -341,7 +341,7 @@ public class MainDijkstra extends JPanel {
         // Connect edge to graph
         for (int i = 0; i < data.size(); i++) {
             Edge edge = data.get(i);
-            g.connect(edge.getSrc()).to(edge.getDest()).withEdge(edge.getWeight());
+            g.connect(edge.getSrc()).to(edge.getDestination()).withEdge(edge.getWeight());
         }
 
         HipsterGraph<String, Integer> graph = g.createUndirectedGraph();

@@ -36,7 +36,7 @@ public class Client {
     public static Socket socket = null;
     public static DataOutputStream out;
     public static DataInputStream in;
-//    BufferedReader stdIn = null;
+    BufferedReader stdIn = null;
     private final int keySize = 2048;
     public static int port = 1234;
 
@@ -56,7 +56,7 @@ public class Client {
         pubClient = kp.getPublic();
         priClient = kp.getPrivate();
 
-        out.write(pubClient.getEncoded()); // gửi pubClient tới Server
+        out.write(pubClient.getEncoded()); // gửi khoá public từ Client tới Server
         out.flush();
 
         byte[] publicKeyBytes = new byte[keySize]; // nhận public key từ Server
@@ -98,7 +98,7 @@ public class Client {
 
         byte[] lineBytes = line.getBytes();
 
-        int validSize = keyBitLength / 8 - 11; // độ dài mã hoá RSA hợp lệ
+        int validSize = keyBitLength / 8 - 11; // chuẩn độ dài mã hoá RSA hợp lệ
 
         int blockCount = (int) Math.ceil((float) lineBytes.length / validSize);
         int remaining = line.getBytes().length; // chia thành từng block theo độ dài hợp lệ
@@ -123,15 +123,14 @@ public class Client {
         }
     }
 
+    // Sửa lại giao diện ....
     private void init() throws Exception {
-        // Set default ui like current OS
+
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-        // Dijstra main panel
         MainDijkstra dijkstraPanel = new MainDijkstra();
         MainPanel fCFSPanel = new MainPanel();
 
-        // JTabbedPane
         JTabbedPane tabs = new JTabbedPane();
         tabs.add(dijkstraPanel);
         tabs.setBackground(Color.GRAY);
@@ -139,7 +138,6 @@ public class Client {
         tabs.add(fCFSPanel);
         tabs.setTitleAt(1, "CPU Schedule");
 
-        // Show on frame
         JFrame frame = new JFrame();
         frame.add(tabs);
 

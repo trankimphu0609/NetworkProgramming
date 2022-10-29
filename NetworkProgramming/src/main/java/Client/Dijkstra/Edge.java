@@ -11,12 +11,12 @@ package Client.Dijkstra;
 public class Edge {
 
     private String src;
-    private String dest;
+    private String destination;
     private int weight;
 
-    public Edge(String src, String dest, int weight) {
+    public Edge(String src, String destination, int weight) {
         this.src = src;
-        this.dest = dest;
+        this.destination = destination;
         this.weight = weight;
     }
 
@@ -28,12 +28,12 @@ public class Edge {
         this.src = src;
     }
 
-    public String getDest() {
-        return dest;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setDest(String dest) {
-        this.dest = dest;
+    public void setDestination(String dest) {
+        this.destination = destination;
     }
 
     public int getWeight() {

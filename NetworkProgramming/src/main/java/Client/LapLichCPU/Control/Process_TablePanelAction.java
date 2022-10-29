@@ -30,9 +30,8 @@ import org.jfree.data.time.SimpleTimePeriod;
  *
  * @author trankimphu0609
  */
-// Tất cả hàm xử lý vẽ biểu đồ năm ở ngay chô này
-public class ProcessTablePanelAction {
-
+public class Process_TablePanelAction {
+    // hàm xử lý biểu đồ
     public static void renderGraph(ResultAfterExecuteAlgorithm resultAfterExecuteAlgorithm) {
         Constant.centerPanel.removeAll();
         // Vẽ biểu đồ
@@ -64,15 +63,15 @@ public class ProcessTablePanelAction {
     public static ArrayList<ProcessResult> convertResultAlgorithmToProcessResult(ResultAfterExecuteAlgorithm resultAfterExecuteAlgorithm) {
         ArrayList<ProcessResult> arr = new ArrayList<>();
 
-        for (int i = 0; i < resultAfterExecuteAlgorithm.getTimeLine().size(); i++) {
-            ArrayList<Event> timeline = resultAfterExecuteAlgorithm.getTimeLine();
+        for (int i = 0; i < resultAfterExecuteAlgorithm.getTimeline().size(); i++) {
+            ArrayList<Event> timeline = resultAfterExecuteAlgorithm.getTimeline();
             ProcessResult o = new ProcessResult(timeline.get(i).getProcessName(),
                     timeline.get(i).getStartTime(),
                     timeline.get(i).getFinishTime());
             arr.add(o);
         }
 
-        System.out.println("time line" + resultAfterExecuteAlgorithm.getTimeLine().size());
+        System.out.println("time line" + resultAfterExecuteAlgorithm.getTimeline().size());
 
         return arr;
     }
@@ -163,4 +162,5 @@ public class ProcessTablePanelAction {
         }
         return collection;
     }
+
 }

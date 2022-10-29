@@ -46,21 +46,23 @@ public class RunnableApp implements Runnable {
     public static PublicKey pubClient; // client key
 
     public RunnableApp(Socket socket) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+
         this.socket = socket;
 
         in = new DataInputStream(socket.getInputStream());
         out = new DataOutputStream(socket.getOutputStream());
 
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA"); // general public and private keys of current client connected
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA"); 
+//        general public and private keys of current client connected
         keyPairGenerator.initialize(keySize, new SecureRandom());
-        KeyPair kp = keyPairGenerator.genKeyPair();
-        pubServer = kp.getPublic();
-        priServer = kp.getPrivate();
+        KeyPair keyPair = keyPairGenerator.genKeyPair();
+        pubServer = keyPair.getPublic();
+        priServer = keyPair.getPrivate();
 
-        out.write(pubServer.getEncoded()); // gửi pubServer tới Client
+        out.write(pubServer.getEncoded()); // gửi khoá public của Server tới Client
         out.flush();
 
-        byte[] pubBytes = new byte[keySize]; // nhận public key từ Client
+        byte[] pubBytes = new byte[keySize]; // nhận khoá public từ Client
         in.read(pubBytes, 0, keySize);
 
         X509EncodedKeySpec ks = new X509EncodedKeySpec(pubBytes);
@@ -95,12 +97,12 @@ public class RunnableApp implements Runnable {
         Cipher c = Cipher.getInstance("RSA"); // để mã hóa chuỗi gửi cho Client
         c.init(Cipher.ENCRYPT_MODE, pubClient); // dùng pubClient
 
-        final RSAPublicKey rsapub = (RSAPublicKey) pubClient; // lấy độ dài bit của pub
+        final RSAPublicKey rsapub = (RSAPublicKey) pubClient; // lấy độ dài bit của khoá public Client
         int keyBitLength = rsapub.getModulus().bitLength();
 
         byte[] lineBytes = line.getBytes();
 
-        int validSize = keyBitLength / 8 - 11; // độ dài mã hoá RSA hợp lệ
+        int validSize = keyBitLength / 8 - 11; // chuẩn độ dài mã hoá RSA hợp lệ
 
         int blockCount = (int) Math.ceil((float) lineBytes.length / validSize);
         int remaining = line.getBytes().length; // chia thành từng block theo độ dài hợp lệ
@@ -134,9 +136,9 @@ public class RunnableApp implements Runnable {
             while (true) {
                 String input = socketReadLine();
 
-                if (input.contains("get-shortest-path")) { // get-shortest-path-A-B
-                    String nodeStart = input.split("-")[3]; // A
-                    String nodeEnd = input.split("-")[4]; // B
+                if (input.contains("get-shortest-path")) { // theo cấu trúc get-shortest-path-A-B
+                    String nodeStart = input.split("-")[3]; // lấy cái A
+                    String nodeEnd = input.split("-")[4]; // lấy cái B
 
                     String edgesString = socketReadLine();
                     Dijkstra dijkstra = new Dijkstra(edgesString);
@@ -151,16 +153,15 @@ public class RunnableApp implements Runnable {
                     } else {
                         socketSend("ERROR: Your nodes invalid or does not have a path.");
                     }
-                } else if (input.contains("get-algorythm")) { // get-algorythm-NameOfAlgorythm
-                    String algorithm = input.split("-")[2]; // tìm tên thuật toán lập lịch CPU
+                } else if (input.contains("get-algorythm")) { // theo cấu trúc get-algorythm-NameOfAlgorythm
+                    String algorithm = input.split("-")[2]; // tìm tên thuật toán trong LapLichCPU
                     System.out.println(algorithm);
 
                     ExecuteCPUAlgorithm executeCPUAlgorythm = new ExecuteCPUAlgorithm(
                             socketReadLine(),
                             algorithm); // hàm của Server xử lý
 
-                    socketSend(gson.toJson(executeCPUAlgorythm.execute()));
-                    // execute trả về LapLichCPU. 
+                    socketSend(gson.toJson(executeCPUAlgorythm.execute())); // execute trả về LapLichCPU. 
                     // Client nhận và xử lý thành dataset để dùng hiển thị chart
                     // trả kết quả về Client để xuất ra đồ thị
                 }

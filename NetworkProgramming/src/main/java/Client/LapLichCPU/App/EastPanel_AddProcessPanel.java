@@ -6,9 +6,9 @@ package Client.LapLichCPU.App;
 
 import Client.Client;
 import Client.LapLichCPU.Constant.Constant;
-import Client.LapLichCPU.Control.ProcessTablePanelAction;
-import static Client.LapLichCPU.Control.ProcessTablePanelAction.renderGraph;
-import static Client.LapLichCPU.Control.ProcessTablePanelAction.updateTable;
+import Client.LapLichCPU.Control.Process_TablePanelAction;
+import static Client.LapLichCPU.Control.Process_TablePanelAction.renderGraph;
+import static Client.LapLichCPU.Control.Process_TablePanelAction.updateTable;
 import Client.LapLichCPU.Entity.ResultAfterExecuteAlgorithm;
 import Client.LapLichCPU.Entity.Row;
 import com.google.gson.Gson;
@@ -170,7 +170,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
                                 // Update Graph, việc vẽ grap sẽ do server trả kết quả về
                                 renderGraph(result);
                             } catch (Exception ex) {
-                                Logger.getLogger(ProcessTablePanelAction.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(Process_TablePanelAction.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         } else if (option == 1) {
                             // keep it and do nothing
@@ -198,7 +198,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
                             updateTable();
                             renderGraph(result);
                         } catch (Exception ex) {
-                            Logger.getLogger(ProcessTablePanelAction.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(Process_TablePanelAction.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 }
@@ -355,7 +355,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
                 // Render ra kết quả
                 renderGraph(result);
                 // Update table
-                ProcessTablePanelAction.updateTable();
+                Process_TablePanelAction.updateTable();
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(EastPanel_AddProcessPanel.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
