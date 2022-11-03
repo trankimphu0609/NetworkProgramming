@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Server.LapLichCPU;
 
 import Server.LapLichCPU.Algorithms.CPUScheduler;
@@ -7,17 +11,11 @@ import Server.LapLichCPU.Algorithms.PP;
 import Server.LapLichCPU.Algorithms.RR;
 import Server.LapLichCPU.Algorithms.SJF;
 import Server.LapLichCPU.Algorithms.SRT;
+import Server.LapLichCPU.Entity.Row;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import Server.LapLichCPU.Entity.Row;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 /**
  *

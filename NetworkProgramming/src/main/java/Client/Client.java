@@ -123,7 +123,6 @@ public class Client {
         }
     }
 
-    // Sửa lại giao diện ....
     private void init() throws Exception {
 
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -133,14 +132,14 @@ public class Client {
 
         JTabbedPane tabs = new JTabbedPane();
         tabs.add(dijkstraPanel);
-        tabs.setBackground(Color.GRAY);
-        tabs.setTitleAt(0, "Dijkstra");
+        tabs.setTitleAt(0, "DIJKSTRA");
         tabs.add(fCFSPanel);
-        tabs.setTitleAt(1, "CPU Schedule");
+        tabs.setTitleAt(1, "CPU SCHEDULE");
 
         JFrame frame = new JFrame();
         frame.add(tabs);
 
+        frame.setBackground(Color.lightGray);
         frame.setSize(Constant.mainWidth, Constant.mainHeight);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

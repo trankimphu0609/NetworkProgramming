@@ -28,9 +28,9 @@ public class NodeGraph extends JPanel {
         }
     };
     private String[] path = {};
-    private ArrayList<Edge> edges = new ArrayList<>();
+    private ArrayList<NodeEdge> edges = new ArrayList<>();
 
-    public NodeGraph(String[] path, ArrayList<Edge> edges) {
+    public NodeGraph(String[] path, ArrayList<NodeEdge> edges) {
         this.path = path;
         this.edges = edges;
 
@@ -48,7 +48,7 @@ public class NodeGraph extends JPanel {
         graph.setAttribute("ui.stylesheet", "url('src/main/java/client/dijkstra/graphstyle.css')");
 
         // Gender Edges & Nodes
-        for (Edge edge : edges) {
+        for (NodeEdge edge : edges) {
             Node a = graph.addNode(edge.getSrc());
             Node b = graph.addNode(edge.getDestination());
             org.graphstream.graph.Edge e = graph.addEdge(edge.getSrc() + edge.getDestination(), a, b, true);

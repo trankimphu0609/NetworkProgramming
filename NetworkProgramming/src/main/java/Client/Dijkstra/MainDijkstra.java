@@ -13,9 +13,9 @@ import es.usc.citius.hipster.graph.GraphSearchProblem;
 import es.usc.citius.hipster.graph.HipsterGraph;
 import es.usc.citius.hipster.model.problem.SearchProblem;
 import java.awt.Component;
+import java.awt.GridBagConstraints;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -44,33 +44,31 @@ public class MainDijkstra extends JPanel {
     private final Gson gson = new Gson();
     private String[] path = {};
     private final String[] emptyPath = {};
-    private ArrayList<Edge> edges = new ArrayList<>();
+    private ArrayList<NodeEdge> edges = new ArrayList<>();
     boolean isValid = true;
 
-    // --- Left side
-    public JPanel nodeGraphPanel = new JPanel();
+    public JPanel panelNodeGraph = new JPanel(); // left side
 
-    // --- Right side
-    public JPanel rightSidePanel = new JPanel();
-    // Add node form
-    public JPanel panelGroupInputEdge = new JPanel(new GridBagLayout());
-    public JXTextField inputSrcNode = new JXTextField("Source Node");
-    public JXTextField inputDestNode = new JXTextField("Dest Node");
-    public JXTextField inputEdgeWeight = new JXTextField("Weight");
-    public JButton enterButton = new JXButton("ADD");
-    // Upload file form
-    public JPanel panelUploadFile = new JPanel();
-    public JLabel fileNameLabel = new JLabel();
-    public JButton chooseFileButton = new JButton("Choose File");
-    // Find shortest path form
-    public JPanel panelFindPath = new JPanel(new GridBagLayout());
-    public JXTextField inputStartNode = new JXTextField("start");
-    public JXTextField inputEndNode = new JXTextField("end");
-    public JButton findPathButton = new JButton("Find shortest path");
-    // Export image button
-    public JButton exportImageButton = new JButton("Export to Image");
-    // Clear graph
-    public JButton clearGraphButton = new JButton("Clear Graph");
+    public JPanel panelRightSide = new JPanel(); // right side
+
+    public JPanel panelInputEdge = new JPanel(new GridBagLayout()); // them node 
+    public JXTextField txtSrc = new JXTextField("source node...");
+    public JXTextField txtDest = new JXTextField("destination node...");
+    public JXTextField txtWeight = new JXTextField("edge weight...");
+    public JButton btnAdd = new JXButton("ADD");
+
+    public JPanel panelUploadFile = new JPanel();   // up file tu thu muc testfile
+    public JLabel lblFileName = new JLabel();
+    public JButton btnChooseFile = new JButton("CHOOSE FILE");
+
+    public JPanel panelFindPath = new JPanel(new GridBagLayout()); // tim kiem
+    public JXTextField txtStart = new JXTextField("start...");
+    public JXTextField txtEnd = new JXTextField("end...");
+    public JButton btnFind = new JButton("FIND SHORTEST PATH");
+
+    public JButton btnExport = new JButton("EXPORT TO IMAGE"); // xuat hinh 
+
+    public JButton btnClear = new JButton("CLEAR GRAPH"); // xoa node tra ve ban dau
 
     public MainDijkstra() {
         init();
@@ -79,118 +77,118 @@ public class MainDijkstra extends JPanel {
     private void init() {
         NodeGraph nodeGraph = new NodeGraph(path, edges);
 
-        // --- RIGHT SIDE >>START
-        // ----- panelGroupInputEdge >>START
-        panelGroupInputEdge.setBorder(BorderFactory.createTitledBorder("Add An Edge"));
-        panelGroupInputEdge.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
+        // -------------------------------------------------------------------------------------------
+        panelInputEdge.setBorder(BorderFactory.createTitledBorder("Add An Edge"));
+        panelInputEdge.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
 
-        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagConstraints gridBagConstraints1 = new GridBagConstraints();
+
         // full width
-        gbc.weightx = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints1.weightx = 1;
+        gridBagConstraints1.fill = GridBagConstraints.HORIZONTAL;
 
-        // x: col, y: row
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        panelGroupInputEdge.add(new JLabel("Source Node:"), gbc);
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        panelGroupInputEdge.add(inputSrcNode, gbc);
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        panelGroupInputEdge.add(new JLabel("Dest Node:"), gbc);
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        panelGroupInputEdge.add(inputDestNode, gbc);
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        panelGroupInputEdge.add(new JLabel("Weight:"), gbc);
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        panelGroupInputEdge.add(inputEdgeWeight, gbc);
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.gridwidth = 2;
-        panelGroupInputEdge.add(enterButton, gbc);
-        // ----- panelGroupInputEdge >>END
+        // x: col
+        // y: row
+        gridBagConstraints1.gridx = 0;
+        gridBagConstraints1.gridy = 0;
+        panelInputEdge.add(new JLabel("Source Node:"), gridBagConstraints1);
+        gridBagConstraints1.gridx = 1;
+        gridBagConstraints1.gridy = 0;
+        panelInputEdge.add(txtSrc, gridBagConstraints1);
+        gridBagConstraints1.gridx = 0;
+        gridBagConstraints1.gridy = 1;
+        panelInputEdge.add(new JLabel("Destination Node:"), gridBagConstraints1);
+        gridBagConstraints1.gridx = 1;
+        gridBagConstraints1.gridy = 1;
+        panelInputEdge.add(txtDest, gridBagConstraints1);
+        gridBagConstraints1.gridx = 0;
+        gridBagConstraints1.gridy = 2;
+        panelInputEdge.add(new JLabel("Weight:"), gridBagConstraints1);
+        gridBagConstraints1.gridx = 1;
+        gridBagConstraints1.gridy = 2;
+        panelInputEdge.add(txtWeight, gridBagConstraints1);
+        gridBagConstraints1.gridx = 0;
+        gridBagConstraints1.gridy = 3;
+        gridBagConstraints1.gridwidth = 2;
+        panelInputEdge.add(btnAdd, gridBagConstraints1);
 
-        // ----- panelUploadFile >>START
+        // -------------------------------------------------------------------------------------------
         panelUploadFile.setBorder(BorderFactory.createTitledBorder("Upload File"));
         panelUploadFile.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 60));
 
-        fileNameLabel.setPreferredSize(new Dimension(150, 23));
-        panelUploadFile.add(fileNameLabel);
-        panelUploadFile.add(chooseFileButton);
-        // ----- panelUploadFile >>END
+        lblFileName.setPreferredSize(new Dimension(150, 23));
+        panelUploadFile.add(lblFileName);
+        panelUploadFile.add(btnChooseFile);
 
-        // ----- panelFindPath >>START
+        // -------------------------------------------------------------------------------------------
         panelFindPath.setBorder(BorderFactory.createTitledBorder("Find Shortest Path"));
         panelFindPath.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 100));
-        GridBagConstraints fc = new GridBagConstraints();
+        GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
 
         // full width
-        fc.weightx = 1;
-        fc.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints2.weightx = 1;
+        gridBagConstraints2.fill = GridBagConstraints.HORIZONTAL;
 
-        // x: col, y: row
-        fc.gridx = 0;
-        fc.gridy = 0;
-        panelFindPath.add(new JLabel("Start Node:"), fc);
-        fc.gridx = 1;
-        fc.gridy = 0;
-        panelFindPath.add(inputStartNode, fc);
-        fc.gridx = 0;
-        fc.gridy = 1;
-        panelFindPath.add(new JLabel("End Node:"), fc);
-        fc.gridx = 1;
-        fc.gridy = 1;
-        panelFindPath.add(inputEndNode, fc);
-        fc.gridx = 0;
-        fc.gridy = 2;
-        fc.gridwidth = 2;
-        panelFindPath.add(findPathButton, fc);
-        // ----- panelFindPath >>END
+        // x: col
+        // y: row
+        gridBagConstraints2.gridx = 0;
+        gridBagConstraints2.gridy = 0;
+        panelFindPath.add(new JLabel("Start Node:"), gridBagConstraints2);
+        gridBagConstraints2.gridx = 1;
+        gridBagConstraints2.gridy = 0;
+        panelFindPath.add(txtStart, gridBagConstraints2);
+        gridBagConstraints2.gridx = 0;
+        gridBagConstraints2.gridy = 1;
+        panelFindPath.add(new JLabel("End Node:"), gridBagConstraints2);
+        gridBagConstraints2.gridx = 1;
+        gridBagConstraints2.gridy = 1;
+        panelFindPath.add(txtEnd, gridBagConstraints2);
+        gridBagConstraints2.gridx = 0;
+        gridBagConstraints2.gridy = 2;
+        gridBagConstraints2.gridwidth = 2;
+        panelFindPath.add(btnFind, gridBagConstraints2);
 
-        rightSidePanel.setPreferredSize(new Dimension(Constant.addNodeFormWidth, Constant.mainHeight));
-        rightSidePanel.add(panelGroupInputEdge);
-        rightSidePanel.add(panelUploadFile);
-        rightSidePanel.add(panelFindPath);
-        rightSidePanel.add(exportImageButton);
-        rightSidePanel.add(clearGraphButton);
+        // -------------------------------------------------------------------------------------------
+        panelRightSide.setPreferredSize(new Dimension(Constant.addNodeFormWidth, Constant.mainHeight));
+        panelRightSide.add(panelInputEdge);
+        panelRightSide.add(panelUploadFile);
+        panelRightSide.add(panelFindPath);
+        panelRightSide.add(btnExport);
+        panelRightSide.add(btnClear);
 
-        // Events
-        enterButton.addActionListener((e) -> {
-            handleClickAddEdgeButton();
+        // -------------------------------------------------------------------------------------------
+        btnAdd.addActionListener((e) -> {
+            btnAddEdge();
         });
-        chooseFileButton.addActionListener((e) -> {
-            handleClickChooseFileButton();
+        btnChooseFile.addActionListener((e) -> {
+            btnChooseFile();
         });
-        findPathButton.addActionListener((e) -> {
-            handleClickFindPathButton();
+        btnFind.addActionListener((e) -> {
+            btnFindPath();
         });
-        exportImageButton.addActionListener((e) -> {
-            handleClickExportImage();
+        btnExport.addActionListener((e) -> {
+            btnExportImage();
         });
-        clearGraphButton.addActionListener((e) -> {
-            handleClearGraphClick();
+        btnClear.addActionListener((e) -> {
+            btnClear();
         });
-        // --- RIGHT SIDE >>END
 
-        nodeGraphPanel.add(nodeGraph);
+        // -------------------------------------------------------------------------------------------
+        panelNodeGraph.add(nodeGraph);
 
         this.setLayout(new GridBagLayout());
         this.setSize(Constant.mainWidth, Constant.mainHeight);
 
-        this.add(nodeGraphPanel, new GridBagConstraints());
-        this.add(rightSidePanel, new GridBagConstraints());
+        this.add(panelNodeGraph, new GridBagConstraints());
+        this.add(panelRightSide, new GridBagConstraints());
     }
 
     private void makePanelImage(Component panel, int width, int height, String pathname) {
-        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g2 = image.createGraphics();
-        panel.paint(g2);
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics2D = bufferedImage.createGraphics();
+        panel.paint(graphics2D);
         try {
-            ImageIO.write(image, "png", new File(pathname));
+            ImageIO.write(bufferedImage, "png", new File(pathname));
             JOptionPane.showMessageDialog(null, "Saved.");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Make image fail");
@@ -198,76 +196,59 @@ public class MainDijkstra extends JPanel {
         }
     }
 
-    private void handleClickExportImage() {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Specify a file to save");
-        chooser.setSelectedFile(new File("fileToSave.png"));
-
-        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-            makePanelImage(
-                    nodeGraphPanel,
-                    Constant.nodeGraphWidth,
-                    Constant.mainHeight,
-                    chooser.getSelectedFile().getPath());
-
-        }
-    }
-
-    private Edge validateEdgeValue(String src, String dest, String weight) {
+    private NodeEdge validateEdgeValue(String src, String dest, String weight) {
         if (src.isBlank() || dest.isBlank() || weight.isBlank()) {
-            JOptionPane.showMessageDialog(null, "Please filled the form.");
+            JOptionPane.showMessageDialog(null, "Lỗi: Vui lòng điền đầy đủ!");
             return null;
         }
 
-        // same value
         if (src.equals(dest)) {
-            JOptionPane.showMessageDialog(null, "Can not put same nodes.");
+            JOptionPane.showMessageDialog(null, "Lỗi: Không được để tên nút src và dest bằng nhau!");
             return null;
         }
 
-        // is a number
         try {
             Integer.parseInt(weight);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Please input edge weight by a number");
+            JOptionPane.showMessageDialog(null, "Lỗi: Vui lòng nhập số!");
             return null;
         }
 
         if (Integer.parseInt(weight) < 1) {
-            JOptionPane.showMessageDialog(null, "Must be >= 1.");
+            JOptionPane.showMessageDialog(null, "Lỗi: Weight phải lớn hơn bằng 1");
             return null;
         }
 
-        return new Edge(src, dest, Integer.parseInt(weight));
+        return new NodeEdge(src, dest, Integer.parseInt(weight));
     }
 
-    private void handleClickAddEdgeButton() {
-        String src = inputSrcNode.getText();
-        String dest = inputDestNode.getText();
-        String weight = inputEdgeWeight.getText();
+    private void btnAddEdge() {
+        String src = txtSrc.getText();
+        String dest = txtDest.getText();
+        String weight = txtWeight.getText();
 
-        Edge edge = validateEdgeValue(src, dest, weight);
+        NodeEdge edge = validateEdgeValue(src, dest, weight);
 
         if (edge != null) {
-            ArrayList<Edge> tmpEdges = (ArrayList<Edge>) edges.clone();
+            ArrayList<NodeEdge> tmpEdges = (ArrayList<NodeEdge>) edges.clone();
 
             tmpEdges.add(edge);
             if (!validateGraph(tmpEdges)) {
-                JOptionPane.showMessageDialog(null, "error: graph invalid or has nodes out of graph");
+                JOptionPane.showMessageDialog(null, "Lỗi: Đồ thị không hợp lệ hoặc có nút ra khỏi đồ thị");
             } else {
                 this.edges.add(edge);
 
                 //clear inputs
-                inputSrcNode.setText("");
-                inputDestNode.setText("");
-                inputEdgeWeight.setText("");
+                txtSrc.setText("");
+                txtDest.setText("");
+                txtWeight.setText("");
 
                 regenerateGraph();
             }
         }
     }
 
-    private void handleClickChooseFileButton() {
+    private void btnChooseFile() {
         JFileChooser chooser = new JFileChooser(new File(Constant.testFilesPath));
 
         int r = chooser.showOpenDialog(null);
@@ -281,20 +262,20 @@ public class MainDijkstra extends JPanel {
                 // regenerate graph layout
                 regenerateGraph();
             } catch (FileNotFoundException ex) {
-                System.out.println("Upload fail");
+                System.out.println("Lỗi: file upload thất bại");
                 System.out.println(ex);
             }
 
-            fileNameLabel.setText(chooser.getSelectedFile().getName());
+            lblFileName.setText(chooser.getSelectedFile().getName());
         } else {
-            System.out.println("The user cancelled the operation");
+            System.out.println("Huỷ thao tác.");
         }
     }
 
     public void applyEdgesFromFile(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
         String line;
-        ArrayList<Edge> newEdges = new ArrayList<>();
+        ArrayList<NodeEdge> newEdges = new ArrayList<>();
 
         try ( Scanner sc = new Scanner(file, StandardCharsets.UTF_8.name())) {
             while (sc.hasNextLine()) {
@@ -303,7 +284,7 @@ public class MainDijkstra extends JPanel {
                 // validate line
                 String[] items = line.split("-");
                 if (items.length != 3 || items[0].isBlank() || items[1].isBlank() || items[2].isBlank()) {
-                    JOptionPane.showMessageDialog(null, "error: invalid file(each line must be 'src-dest-weight')");
+                    JOptionPane.showMessageDialog(null, "Lỗi: Sai cú pháp ('src-dest-weight')");
                 }
 
                 String src = items[0];
@@ -312,19 +293,19 @@ public class MainDijkstra extends JPanel {
                 try {
                     weight = Integer.parseInt(items[2]);
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "error: invalid file(weight must be a number)");
+                    JOptionPane.showMessageDialog(null, "Lỗi: Sai cú pháp (weight phải là số)");
                     // reset graph
                     this.edges = new ArrayList<>();
                     this.path = emptyPath;
                     return;
                 }
 
-                newEdges.add(new Edge(src, dest, weight));
+                newEdges.add(new NodeEdge(src, dest, weight));
             }
         }
 
         if (!validateGraph(newEdges)) {
-            JOptionPane.showMessageDialog(null, "error: graph invalid or has nodes out of graph");
+            JOptionPane.showMessageDialog(null, "Lỗi: Đồ thị không hợp lệ hoặc có nút ra khỏi đồ thị");
             // reset graph
             this.edges = new ArrayList<>();
             this.path = emptyPath;
@@ -333,14 +314,14 @@ public class MainDijkstra extends JPanel {
         }
     }
 
-    public boolean validateGraph(ArrayList<Edge> data) {
+    public boolean validateGraph(ArrayList<NodeEdge> data) {
         isValid = true;
 
         // Init graph
         GraphBuilder<String, Integer> g = GraphBuilder.<String, Integer>create();
         // Connect edge to graph
         for (int i = 0; i < data.size(); i++) {
-            Edge edge = data.get(i);
+            NodeEdge edge = data.get(i);
             g.connect(edge.getSrc()).to(edge.getDestination()).withEdge(edge.getWeight());
         }
 
@@ -369,10 +350,10 @@ public class MainDijkstra extends JPanel {
         return isValid;
     }
 
-    private void handleClickFindPathButton() {
+    private void btnFindPath() {
         try {
-            String startNode = inputStartNode.getText();
-            String endNode = inputEndNode.getText();
+            String startNode = txtStart.getText();
+            String endNode = txtEnd.getText();
 
             if (startNode.isBlank() || endNode.isBlank()) {
                 JOptionPane.showMessageDialog(null, "Please filled the form.");
@@ -403,24 +384,35 @@ public class MainDijkstra extends JPanel {
         }
     }
 
+    private void btnExportImage() {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Specify a file to save");
+        chooser.setSelectedFile(new File("savefile.png"));
+
+        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            makePanelImage(panelNodeGraph, Constant.nodeGraphWidth, Constant.mainHeight, chooser.getSelectedFile().getPath());
+
+        }
+    }
+
     private void regenerateGraph() {
-        nodeGraphPanel.removeAll();
+        panelNodeGraph.removeAll();
 
         NodeGraph newNodeGraph = new NodeGraph(path, edges);
-        nodeGraphPanel.add(newNodeGraph);
+        panelNodeGraph.add(newNodeGraph);
 
         this.validate();
     }
 
-    private void handleClearGraphClick() {
-        nodeGraphPanel.removeAll();
+    private void btnClear() {
+        panelNodeGraph.removeAll();
 
         // empty path & edges
         path = emptyPath;
         edges = new ArrayList<>();
 
         NodeGraph newNodeGraph = new NodeGraph(path, edges);
-        nodeGraphPanel.add(newNodeGraph);
+        panelNodeGraph.add(newNodeGraph);
 
         this.validate();
     }

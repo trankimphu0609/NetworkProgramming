@@ -22,7 +22,7 @@ import java.util.List;
 public final class Dijkstra {
 
     private final Gson gson = new Gson();
-    private ArrayList<Edge> edges = new ArrayList<>();
+    private ArrayList<NodeEdge> edges = new ArrayList<>();
     boolean isValid = true;
 
     public Dijkstra(String edges) throws IOException {
@@ -34,8 +34,8 @@ public final class Dijkstra {
         GraphBuilder<String, Integer> g = GraphBuilder.<String, Integer>create();
         // Connect edge to graph
         for (int i = 0; i < edges.size(); i++) {
-            Edge edge = edges.get(i);
-            g.connect(edge.getSrc()).to(edge.getDest()).withEdge(edge.getWeight());
+            NodeEdge edge = edges.get(i);
+            g.connect(edge.getSrc()).to(edge.getDestination()).withEdge(edge.getWeight());
         }
 
         HipsterGraph<String, Integer> graph = g.createUndirectedGraph();
@@ -80,8 +80,8 @@ public final class Dijkstra {
             GraphBuilder<String, Integer> g = GraphBuilder.<String, Integer>create();
             // Connect edge to graph
             for (int i = 0; i < edges.size(); i++) {
-                Edge edge = edges.get(i);
-                g.connect(edge.getSrc()).to(edge.getDest()).withEdge(edge.getWeight());
+                NodeEdge edge = edges.get(i);
+                g.connect(edge.getSrc()).to(edge.getDestination()).withEdge(edge.getWeight());
             }
 
             HipsterGraph<String, Integer> graph = g.createUndirectedGraph();
@@ -105,10 +105,10 @@ public final class Dijkstra {
 
     public void applyEdgesFromJsonString(String string) {
         List list = gson.fromJson(string, List.class);
-        ArrayList<Edge> newEdges = new ArrayList<>();
+        ArrayList<NodeEdge> newEdges = new ArrayList<>();
 
         for (Object objEdge : list) {
-            Edge edge = gson.fromJson(gson.toJson(objEdge), Edge.class);
+            NodeEdge edge = gson.fromJson(gson.toJson(objEdge), NodeEdge.class);
             newEdges.add(edge);
         }
 
