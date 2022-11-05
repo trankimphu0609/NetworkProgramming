@@ -49,9 +49,9 @@ public class NodeGraph extends JPanel {
 
         // Gender Edges & Nodes
         for (NodeEdge edge : edges) {
-            Node a = graph.addNode(edge.getSrc());
+            Node a = graph.addNode(edge.getSource());
             Node b = graph.addNode(edge.getDestination());
-            org.graphstream.graph.Edge e = graph.addEdge(edge.getSrc() + edge.getDestination(), a, b, true);
+            org.graphstream.graph.Edge e = graph.addEdge(edge.getSource() + edge.getDestination(), a, b, true);
             e.setAttribute("ui.label", edge.getWeight());
         }
 
@@ -86,4 +86,3 @@ public class NodeGraph extends JPanel {
         this.add(panel);
     }
 }
-

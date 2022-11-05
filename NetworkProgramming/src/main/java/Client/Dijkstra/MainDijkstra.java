@@ -322,14 +322,14 @@ public class MainDijkstra extends JPanel {
         // Connect edge to graph
         for (int i = 0; i < data.size(); i++) {
             NodeEdge edge = data.get(i);
-            g.connect(edge.getSrc()).to(edge.getDestination()).withEdge(edge.getWeight());
+            g.connect(edge.getSource()).to(edge.getDestination()).withEdge(edge.getWeight());
         }
 
         HipsterGraph<String, Integer> graph = g.createUndirectedGraph();
 
         // Valid graph is each node has path from mainNode to destNode
         Iterable<String> vertices = graph.vertices();
-        String mainNode = data.get(0).getSrc(); // select any node from edges
+        String mainNode = data.get(0).getSource(); // select any node from edges
 
         vertices.forEach((destNode) -> {
             // Create the search problem

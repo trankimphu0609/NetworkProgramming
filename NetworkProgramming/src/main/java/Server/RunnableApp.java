@@ -154,14 +154,14 @@ public class RunnableApp implements Runnable {
                         socketSend("ERROR: Your nodes invalid or does not have a path.");
                     }
                 } else if (input.contains("get-algorythm")) { // theo cấu trúc get-algorythm-NameOfAlgorythm
-                    String algorithm = input.split("-")[2]; // tìm tên thuật toán trong LapLichCPU
+                    String algorithm = input.split("-")[2]; // tìm tên thuật toán trong CPUScheduler
                     System.out.println(algorithm);
 
                     ExecuteCPUAlgorithm executeCPUAlgorythm = new ExecuteCPUAlgorithm(
                             socketReadLine(),
                             algorithm); // hàm của Server xử lý
 
-                    socketSend(gson.toJson(executeCPUAlgorythm.execute())); // execute trả về LapLichCPU. 
+                    socketSend(gson.toJson(executeCPUAlgorythm.execute())); // execute trả về CPUScheduler. 
                     // Client nhận và xử lý thành dataset để dùng hiển thị chart
                     // trả kết quả về Client để xuất ra đồ thị
                 }

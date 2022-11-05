@@ -9,22 +9,22 @@ package Server.Dijkstra;
  * @author trankimphu0609
  */
 public class NodeEdge {
-    private String src;
+    private String source;
     private String destination;
     private int weight;
 
-    public NodeEdge(String src, String destination, int weight) {
-        this.src = src;
+    public NodeEdge(String source, String destination, int weight) {
+        this.source = source;
         this.destination = destination;
         this.weight = weight;
     }
 
-    public String getSrc() {
-        return src;
+    public String getSource() {
+        return source;
     }
 
-    public void setSrc(String src) {
-        this.src = src;
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getDestination() {

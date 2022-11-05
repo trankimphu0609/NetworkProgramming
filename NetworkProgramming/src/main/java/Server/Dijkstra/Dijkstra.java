@@ -35,13 +35,13 @@ public final class Dijkstra {
         // Connect edge to graph
         for (int i = 0; i < edges.size(); i++) {
             NodeEdge edge = edges.get(i);
-            g.connect(edge.getSrc()).to(edge.getDestination()).withEdge(edge.getWeight());
+            g.connect(edge.getSource()).to(edge.getDestination()).withEdge(edge.getWeight());
         }
 
         HipsterGraph<String, Integer> graph = g.createUndirectedGraph();
 
         Iterable<String> vertices = graph.vertices();
-        String mainNode = startNode.isBlank() ? edges.get(0).getSrc() : startNode;
+        String mainNode = startNode.isBlank() ? edges.get(0).getSource() : startNode;
 
         // Create the search problem from mainNode
         SearchProblem p = GraphSearchProblem
@@ -81,7 +81,7 @@ public final class Dijkstra {
             // Connect edge to graph
             for (int i = 0; i < edges.size(); i++) {
                 NodeEdge edge = edges.get(i);
-                g.connect(edge.getSrc()).to(edge.getDestination()).withEdge(edge.getWeight());
+                g.connect(edge.getSource()).to(edge.getDestination()).withEdge(edge.getWeight());
             }
 
             HipsterGraph<String, Integer> graph = g.createUndirectedGraph();

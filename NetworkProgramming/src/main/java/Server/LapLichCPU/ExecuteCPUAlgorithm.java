@@ -32,7 +32,6 @@ public class ExecuteCPUAlgorithm {
     }
 
     public CPUScheduler execute() {
-        // Implement
         CPUScheduler algorithm = null;
         if (algorithmName == null) {
             algorithmName = "FCFS";
@@ -50,17 +49,15 @@ public class ExecuteCPUAlgorithm {
         } else if (algorithmName.equals("SRT")) {
             algorithm = new SRT();
         } else {
-            // default
-            algorithm = new FCFS();
+            algorithm = new FCFS(); // default
+
         }
 
         if (arrayProcess.size() > 0) {
-            // add tất cả process trong list vào ham thuat toan
-            for (int i = 0; i < arrayProcess.size(); i++) {
+            for (int i = 0; i < arrayProcess.size(); i++) { // add tất cả process trong list vào ham thuat toan
                 algorithm.add(arrayProcess.get(i));
             }
-            // chạy hàm xử lý thuật toán
-            algorithm.process();
+            algorithm.process(); // chạy hàm xử lý thuật toán
         }
 
         return algorithm;
