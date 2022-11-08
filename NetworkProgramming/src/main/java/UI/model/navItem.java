@@ -77,7 +77,7 @@ public class navItem extends JPanel implements MouseListener {
         setLayout(null);
         setBounds(rec);
 
-        icon.setIcon(new ImageIcon("./src/main/java/image/" + img));
+        icon.setIcon(new ImageIcon("./src/main/java/img/" + img));
         icon.setBackground(Color.white);
         icon.setBounds(new Rectangle(rec.width / 7, rec.height / 4, 50, 30));
 
@@ -106,14 +106,14 @@ public class navItem extends JPanel implements MouseListener {
 
     public void doActive() {
         active = true;
-        icon.setIcon(new ImageIcon("./src/main/java/image/" + imgActive));
+        icon.setIcon(new ImageIcon("./src/main/java/img/" + imgActive));
         lb.setForeground(Color.BLACK);
         setBackground(Color.WHITE);
     }
 
     public void noActive() {
         active = false;
-        icon.setIcon(new ImageIcon("./src/main/java/image/" + img));
+        icon.setIcon(new ImageIcon("./src/main/java/img/" + img));
         lb.setForeground(Color.WHITE);
         setBackground(normal);
     }
@@ -144,7 +144,7 @@ public class navItem extends JPanel implements MouseListener {
     public void mouseEntered(MouseEvent e) {
         if (!active) {
             setBackground(hover);
-            icon.setIcon(new ImageIcon("./src/main/java/image/" + imgHover));
+            icon.setIcon(new ImageIcon("./src/main/java/img/" + imgHover));
         }
     }
 
@@ -152,7 +152,7 @@ public class navItem extends JPanel implements MouseListener {
     public void mouseExited(MouseEvent e) {
         if (!active) {
             setBackground(normal);
-            icon.setIcon(new ImageIcon("./src/main/java/image/" + img));
+            icon.setIcon(new ImageIcon("./src/main/java/img/" + img));
         }
     }
 }

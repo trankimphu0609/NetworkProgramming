@@ -1,8 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package UI;
 
 import Client.Choose_Server;
 import Client.Dijkstra.MainDijkstra;
 import Client.LapLichCPU.App.MainPanel;
+import UI.model.header;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,7 +17,6 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import UI.model.header;
 import UI.model.navItem;
 import java.awt.Font;
 import java.awt.Frame;
@@ -41,11 +45,15 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 
+/**
+ *
+ * @author Trần Kim Phú
+ */
 public class Client extends JFrame implements MouseListener {
-    
+
     private boolean flag = true;
     private JPanel header, nav, main;
-    private int DEFAULT_HEIGHT = 730, DEFALUT_WIDTH = 1300;
+    private int DEFAULT_HEIGHT = 670, DEFALUT_WIDTH = 1280;
     private ArrayList<String> navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm
     private ArrayList<navItem> navObj = new ArrayList<>();  //Chứa cái button trên thanh menu
 
@@ -54,13 +62,13 @@ public class Client extends JFrame implements MouseListener {
     public static DataInputStream in;
     BufferedReader stdIn = null;
     private final int keySize = 2048;
-    public static int port = 1234;
+    public static int port = 4321;
 
     public static PublicKey pubServer; // server key
 
     public static PublicKey pubClient; // client key
     public static PrivateKey priClient; // client key
-    
+
     public Client(String address, int port) throws Exception {
         socket = new Socket(address, port);
         out = new DataOutputStream(socket.getOutputStream());
@@ -159,7 +167,6 @@ public class Client extends JFrame implements MouseListener {
 //            }
 //        });
 
-
         Choose_Server form = new Choose_Server();
 
         form.setLocationRelativeTo(null);
@@ -170,6 +177,8 @@ public class Client extends JFrame implements MouseListener {
     public void view() throws FileNotFoundException {
         Font font = new Font("Time new", Font.BOLD, 14);
         setTitle("DIJKSTRA - CPU SCHEDULER");
+        ImageIcon logo = new ImageIcon("./src/main/java/img/icons8-course-64.png");
+        setIconImage(logo.getImage());
         setLayout(new BorderLayout());
         setSize(DEFALUT_WIDTH, DEFAULT_HEIGHT);
         setLocationRelativeTo(null);
@@ -206,7 +215,7 @@ public class Client extends JFrame implements MouseListener {
 
 //       *************************************nav********************************
         nav = new JPanel(null);
-        nav.setBackground(new Color(204, 142, 53));
+        nav.setBackground(new Color(55, 63, 81));
         nav.setPreferredSize(new Dimension(220, DEFAULT_HEIGHT));
 
         JScrollPane scroll = new JScrollPane(nav);
@@ -214,8 +223,8 @@ public class Client extends JFrame implements MouseListener {
         scroll.setHorizontalScrollBarPolicy(scroll.HORIZONTAL_SCROLLBAR_NEVER);
 
         navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm ( Tên btn : icon : icon hover )
-        navItem.add("DIJKSTRA:QLSP_20px.png:QLSP_20px_active.png");
-        navItem.add("CPU SCHEDULER:QLSP_20px.png:QLSP_20px_active.png");
+        navItem.add("DIJKSTRA:manage-course.png:manage-course.png");
+        navItem.add("CPU SCHEDULER:manage-course.png:manage-course.png");
 
         outNav();
 
@@ -223,7 +232,7 @@ public class Client extends JFrame implements MouseListener {
          * ********** PHẦN MAIN ( HIỂN THỊ ) *************************
          */
         main = new JPanel(null);
-        main.setBackground(new Color(247, 241, 227));
+//        main.setBackground(Color.white);
 //        changeMainInfo(Collections.min(permissions) - 1);  //HIEN THI MAC DINH
         navObj.get(0).doActive();
         changeMainInfo(0);
@@ -255,8 +264,8 @@ public class Client extends JFrame implements MouseListener {
 //                    navObj.get(permission).setColorNormal(new Color(255, 177, 66));
 //                }
 //            }
-            navObj.get(4).setColorNormal(new Color(255, 177, 66));
-            navObj.get(5).setColorNormal(new Color(255, 177, 66));
+            navObj.get(4).setColorNormal(new Color(86, 94, 127));
+            navObj.get(5).setColorNormal(new Color(86, 94, 127));
         }
 
         //Xuất ra Naigation
@@ -280,94 +289,19 @@ public class Client extends JFrame implements MouseListener {
 //            i = i + 2;
 //        }
         switch (i) {
-            case 0: //  BÁN HÀNG 
+            case 0: //  DIJKSTRA
                 main.removeAll();
                 main.add(new MainDijkstra());
                 main.repaint();
                 main.revalidate();
                 break;
-            case 1: // QUẢN LÝ SẢN PHẨM
+            case 1: // CPU SCHEDULER
                 main.removeAll();
                 main.add(new MainPanel());
                 main.repaint();
                 main.revalidate();
                 break;
 
-            case 2: // QUẢN LÝ KHÁCH HÀNG
-                main.removeAll();
-//                main.add(new KhachHangGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-                break;
-
-            case 3: // QUẢN LÝ NHÂN VIÊN
-                main.removeAll();
-//                main.add(new NhanVienGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-                break;
-
-            case 4: //NHẬP VẦ XUẤT
-                if (flag) {
-                    // Thêm 2 btn vào dưới thống kê
-//                    if (Collections.max() == 5) {
-//                        navItem.add(i, "Hóa Đơn:KhachHang_20px.png:KhachHang_20px_active.png");
-//                        navItem.add(i + 1, "Nhập Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
-//                    } else {
-//                        navItem.add(i + 1, "Hóa Đơn:KhachHang_20px.png:KhachHang_20px_active.png");
-//                        navItem.add(i + 2, "Nhập Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
-//                    }
-                    navItem.add(i + 1, "Hóa Đơn:KhachHang_20px.png:KhachHang_20px_active.png");
-                    navItem.add(i + 2, "Nhập Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
-                    flag = false; // Thông báo là đang Dropdown thống kê
-                } else {
-                    // Xóa 2 btn của thống kê
-//                    if (Collections.max(permissions) == 5) {
-//                        navItem.remove(i);
-//                        navItem.remove(i);
-//                    } else {
-//                        navItem.remove(i + 1);
-//                        navItem.remove(i + 1);
-//                    }
-                    navItem.remove(i + 1);
-                    navItem.remove(i + 1);
-                    flag = true;  // Thông báo là Dropdown thống kê đă ẩn
-                }
-                outNav(); //Load lại phần Navigation
-                break;
-            case 5: // BÁN HÀNG
-                main.removeAll();
-//                main.add(new HoaDonGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-                break;
-            case 6: // NHẬP HÀNG
-                main.removeAll();
-//                main.add(new Page404(DEFALUT_WIDTH, "THỐNG KÊ - NHẬP HÀNG"));
-//                main.add(new NhapHangGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-                break;
-            case 7: //NHÀ CUNG CẤP
-                main.removeAll();
-//                main.add(new NhaCungCapGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-                break;
-            case 8: //USER
-                main.removeAll();
-//                main.add(new TaiKhoanGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-                break;
-            case 9: // THỐNG KÊ
-                main.removeAll();
-//                main.add(new ThongKeGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-                break;
-            default:
-                break;
         }
     }
 
