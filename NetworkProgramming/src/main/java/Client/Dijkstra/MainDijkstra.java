@@ -4,7 +4,9 @@
  */
 package Client.Dijkstra;
 
-import Client.Client;
+//import Client.Client;
+import UI.Client;
+
 import com.google.gson.Gson;
 import es.usc.citius.hipster.algorithm.Algorithm;
 import es.usc.citius.hipster.algorithm.Hipster;

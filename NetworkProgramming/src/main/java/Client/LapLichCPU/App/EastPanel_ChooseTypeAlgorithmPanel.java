@@ -4,7 +4,9 @@
  */
 package Client.LapLichCPU.App;
 
-import Client.Client;
+//import Client.Client;
+import UI.Client;
+
 import Client.LapLichCPU.Constant.Constant;
 import Client.LapLichCPU.Entity.ResultAfterExecuteAlgorithm;
 import static Client.LapLichCPU.Control.Process_TablePanelAction.renderGraph;

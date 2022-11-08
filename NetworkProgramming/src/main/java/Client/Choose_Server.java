@@ -4,6 +4,9 @@
  */
 package Client;
 
+//import Client.Client;
+import UI.Client;
+
 import javax.swing.JOptionPane;
 
 /**
