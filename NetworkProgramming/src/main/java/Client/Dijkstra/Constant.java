@@ -10,20 +10,11 @@ package Client.Dijkstra;
  */
 public class Constant {
 
-//    public static int mainWidth = 1000;
-//
-//    public static int mainHeight = 600;
-//
-//    public static int nodeGraphWidth = 700;
-//
-//    public static int addNodeFormWidth = 300;
-    
-    
-    public static int mainWidth = 900;
+    public static int mainWidth = 1000;
 
-    public static int mainHeight = 700;
+    public static int mainHeight = 600;
 
-    public static int nodeGraphWidth = 600;
+    public static int nodeGraphWidth = 700;
 
     public static int addNodeFormWidth = 300;
 

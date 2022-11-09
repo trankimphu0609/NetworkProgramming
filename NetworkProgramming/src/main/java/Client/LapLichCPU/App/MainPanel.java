@@ -23,7 +23,7 @@ public class MainPanel extends JPanel {
 
     public MainPanel() {
         setLayout(new BorderLayout());
-        setSize(Constant.WIDTH_PANEL, Constant.HIGHT_PANEL);
+        setSize(Constant.WIDTH_PANEL, Constant.HEIGHT_PANEL);
 
         centerPanel = new CenterPanel();
         eastPanel = new EastPanel();

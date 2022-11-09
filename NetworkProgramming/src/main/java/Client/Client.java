@@ -38,7 +38,7 @@
 //    public static DataInputStream in;
 //    BufferedReader stdIn = null;
 //    private final int keySize = 2048;
-//    public static int port = 1234;
+//    public static int port = 4323;
 //
 //    public static PublicKey pubServer; // server key
 //

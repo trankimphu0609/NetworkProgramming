@@ -5,25 +5,20 @@
 package Client.LapLichCPU.App;
 
 import Client.LapLichCPU.Constant.Constant;
+
 import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
 /**
- *
  * @author trankimphu0609
  */
 public class CenterPanel extends JPanel {
-
-    public static JPanel mainPanel;
-    public static ChartPanel panel;
-    public static JTabbedPane jTabbedPane;
-    public static JFreeChart chart;
-
     CenterPanel() {
         // Init Center Panel
-        setPreferredSize(new Dimension(Constant.WIDTH_CENTER_PANEL, Constant.HIGHT_PANEL));
+        setPreferredSize(new Dimension(Constant.WIDTH_CENTER_PANEL, Constant.HEIGHT_PANEL));
     }
 }
