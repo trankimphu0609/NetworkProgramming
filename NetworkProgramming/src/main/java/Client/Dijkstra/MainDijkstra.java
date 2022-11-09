@@ -5,6 +5,7 @@
 package Client.Dijkstra;
 
 //import Client.Client;
+
 import UI.Client;
 
 import com.google.gson.Gson;
@@ -14,11 +15,8 @@ import es.usc.citius.hipster.graph.GraphBuilder;
 import es.usc.citius.hipster.graph.GraphSearchProblem;
 import es.usc.citius.hipster.graph.HipsterGraph;
 import es.usc.citius.hipster.model.problem.SearchProblem;
-import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.GridBagLayout;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,11 +32,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXTextField;
 
 /**
- *
  * @author trankimphu0609
  */
 public class MainDijkstra extends JPanel {
@@ -54,9 +52,9 @@ public class MainDijkstra extends JPanel {
     public JPanel panelRightSide = new JPanel(); // right side
 
     public JPanel panelInputEdge = new JPanel(new GridBagLayout()); // them node 
-    public JXTextField txtSrc = new JXTextField("source node...");
-    public JXTextField txtDest = new JXTextField("destination node...");
-    public JXTextField txtWeight = new JXTextField("edge weight...");
+    public JXTextField txtSrc = new JXTextField("");
+    public JXTextField txtDest = new JXTextField("");
+    public JXTextField txtWeight = new JXTextField("");
     public JButton btnAdd = new JXButton("ADD");
 
     public JPanel panelUploadFile = new JPanel();   // up file tu thu muc testfile
@@ -64,8 +62,8 @@ public class MainDijkstra extends JPanel {
     public JButton btnChooseFile = new JButton("CHOOSE FILE");
 
     public JPanel panelFindPath = new JPanel(new GridBagLayout()); // tim kiem
-    public JXTextField txtStart = new JXTextField("start...");
-    public JXTextField txtEnd = new JXTextField("end...");
+    public JXTextField txtStart = new JXTextField("");
+    public JXTextField txtEnd = new JXTextField("");
     public JButton btnFind = new JButton("FIND SHORTEST PATH");
 
     public JButton btnExport = new JButton("EXPORT TO IMAGE"); // xuat hinh 
@@ -79,9 +77,15 @@ public class MainDijkstra extends JPanel {
     private void init() {
         NodeGraph nodeGraph = new NodeGraph(path, edges);
 
+//        panelNodeGraph.setBackground(Color.red);
+//        panelRightSide.setBackground(Color.yellow);
+
+
         // -------------------------------------------------------------------------------------------
         panelInputEdge.setBorder(BorderFactory.createTitledBorder("Add An Edge"));
+//        panelInputEdge.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
         panelInputEdge.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
+
 
         GridBagConstraints gridBagConstraints1 = new GridBagConstraints();
 
@@ -116,7 +120,7 @@ public class MainDijkstra extends JPanel {
 
         // -------------------------------------------------------------------------------------------
         panelUploadFile.setBorder(BorderFactory.createTitledBorder("Upload File"));
-        panelUploadFile.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 60));
+        panelUploadFile.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 100));
 
         lblFileName.setPreferredSize(new Dimension(150, 23));
         panelUploadFile.add(lblFileName);
@@ -124,7 +128,7 @@ public class MainDijkstra extends JPanel {
 
         // -------------------------------------------------------------------------------------------
         panelFindPath.setBorder(BorderFactory.createTitledBorder("Find Shortest Path"));
-        panelFindPath.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 100));
+        panelFindPath.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
         GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
 
         // full width
@@ -149,7 +153,7 @@ public class MainDijkstra extends JPanel {
         gridBagConstraints2.gridy = 2;
         gridBagConstraints2.gridwidth = 2;
         panelFindPath.add(btnFind, gridBagConstraints2);
-
+        panelNodeGraph.setPreferredSize(new Dimension(Constant.nodeGraphWidth, Constant.mainHeight));
         // -------------------------------------------------------------------------------------------
         panelRightSide.setPreferredSize(new Dimension(Constant.addNodeFormWidth, Constant.mainHeight));
         panelRightSide.add(panelInputEdge);
@@ -183,6 +187,7 @@ public class MainDijkstra extends JPanel {
 
         this.add(panelNodeGraph, new GridBagConstraints());
         this.add(panelRightSide, new GridBagConstraints());
+
     }
 
     private void makePanelImage(Component panel, int width, int height, String pathname) {
@@ -279,7 +284,7 @@ public class MainDijkstra extends JPanel {
         String line;
         ArrayList<NodeEdge> newEdges = new ArrayList<>();
 
-        try ( Scanner sc = new Scanner(file, StandardCharsets.UTF_8.name())) {
+        try (Scanner sc = new Scanner(file, StandardCharsets.UTF_8.name())) {
             while (sc.hasNextLine()) {
                 line = sc.nextLine();
 

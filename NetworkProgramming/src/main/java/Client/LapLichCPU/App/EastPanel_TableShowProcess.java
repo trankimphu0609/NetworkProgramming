@@ -61,7 +61,7 @@ public class EastPanel_TableShowProcess extends JPanel {
 
         tableProcess = new JTable(defaultTableModel);
         jScrollPane = new JScrollPane(tableProcess);
-        jScrollPane.setSize(Constant.WIDTH_EAST_PANEL, Constant.HIGHT_PANEL / 2);
+        jScrollPane.setSize(Constant.WIDTH_EAST_PANEL, Constant.HEIGHT_PANEL / 2);
         tableProcess.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent arg0) {

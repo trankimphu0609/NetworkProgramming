@@ -19,7 +19,7 @@ public class EastPanel extends JPanel {
     public static EastPanel_ChooseTypeAlgorithmPanel chooseTypeAlgorithmPanel;
 
     EastPanel() {
-        setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, Constant.HIGHT_PANEL));
+        setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, Constant.HEIGHT_PANEL));
         setLayout(new BorderLayout());
 
         addProcessPanel = new EastPanel_AddProcessPanel();

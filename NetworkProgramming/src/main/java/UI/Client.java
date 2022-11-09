@@ -52,7 +52,7 @@ public class Client extends JFrame implements MouseListener {
 
     private boolean flag = true;
     private JPanel header, nav, main;
-    private int DEFAULT_HEIGHT = 670, DEFALUT_WIDTH = 1280;
+    private int DEFAULT_HEIGHT = 650, DEFALUT_WIDTH = 1240;
     private ArrayList<String> navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm
     private ArrayList<navItem> navObj = new ArrayList<>();  //Chứa cái button trên thanh menu
 
@@ -61,7 +61,7 @@ public class Client extends JFrame implements MouseListener {
     public static DataInputStream in;
     BufferedReader stdIn = null;
     private final int keySize = 2048;
-    public static int port = 4321;
+    public static int port = 4323;
 
     public static PublicKey pubServer; // server key
 

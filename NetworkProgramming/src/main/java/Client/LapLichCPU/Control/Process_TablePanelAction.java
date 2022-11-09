@@ -44,7 +44,7 @@ public class Process_TablePanelAction {
         // Tạo chart
         JFreeChart chart = createChart(dataset);
         Constant.panel = new ChartPanel(chart);
-        Constant.panel.setPreferredSize(new Dimension(Constant.WIDTH_CENTER_PANEL, Constant.HIGHT_PANEL));
+        Constant.panel.setPreferredSize(new Dimension(Constant.WIDTH_CENTER_PANEL, Constant.HEIGHT_PANEL));
         Constant.centerPanel.add(Constant.panel);
 
         // When you add all component, this time to show it
