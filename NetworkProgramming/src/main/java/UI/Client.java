@@ -43,7 +43,6 @@ import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.UIManager;
 
 /**
  *
@@ -154,24 +153,20 @@ public class Client extends JFrame implements MouseListener {
     }
 
     public static void main(String[] args) {
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    Client app = new Client();
-//                    app.setVisible(true);
-//
-//                } catch (Exception ex) {
-//                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Choose_Server form = new Choose_Server();
+                    form.setLocationRelativeTo(null);
+                    form.pack();
+                    form.setVisible(true);
 
-        Choose_Server form = new Choose_Server();
-
-        form.setLocationRelativeTo(null);
-        form.pack();
-        form.setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 
     public void view() throws FileNotFoundException {
@@ -232,8 +227,6 @@ public class Client extends JFrame implements MouseListener {
          * ********** PHẦN MAIN ( HIỂN THỊ ) *************************
          */
         main = new JPanel(null);
-//        main.setBackground(Color.white);
-//        changeMainInfo(Collections.min(permissions) - 1);  //HIEN THI MAC DINH
         navObj.get(0).doActive();
         changeMainInfo(0);
         /**
@@ -270,11 +263,11 @@ public class Client extends JFrame implements MouseListener {
 
         //Xuất ra Naigation
         nav.removeAll();
-//        JLabel profile = new JLabel(new ImageIcon("./src/main/java/image/profile_150px.png"));
+        JLabel profile = new JLabel(new ImageIcon("./src/main/java/img/profile_150px.png"));
 //        JLabel profile = new JLabel(new ImageIcon("./src/main/java/image/QLSP_20px.png"));
 //
-//        profile.setBounds(0, 0, 250, 250);
-//        nav.add(profile);
+        profile.setBounds(0, 0, 210, 210);
+        nav.add(profile);
         for (navItem n : navObj) {
             nav.add(n);
         }
