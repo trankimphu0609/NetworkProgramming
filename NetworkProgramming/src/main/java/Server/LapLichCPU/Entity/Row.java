@@ -5,7 +5,6 @@
 package Server.LapLichCPU.Entity;
 
 /**
- *
  * @author trankimphu0609
  */
 public class Row {

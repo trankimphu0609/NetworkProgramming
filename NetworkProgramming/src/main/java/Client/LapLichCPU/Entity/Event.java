@@ -5,11 +5,10 @@
 package Client.LapLichCPU.Entity;
 
 /**
- *
  * @author trankimphu0609
  */
 public class Event {
-    
+
     private final String processName;
     private final int startTime;
     private int finishTime;

@@ -4,14 +4,16 @@
  */
 package Client.LapLichCPU.App;
 
-//import Client.Client;
 import UI.Client;
 
 import Client.LapLichCPU.Constant.Constant;
 import Client.LapLichCPU.Entity.ResultAfterExecuteAlgorithm;
+
 import static Client.LapLichCPU.Control.Process_TablePanelAction.renderGraph;
 import static Client.LapLichCPU.Control.Process_TablePanelAction.renderDefaultGraph;
+
 import com.google.gson.Gson;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -26,7 +28,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *
  * @author trankimphu0609
  */
 public class EastPanel_ChooseTypeAlgorithmPanel extends JPanel {
@@ -61,9 +62,9 @@ public class EastPanel_ChooseTypeAlgorithmPanel extends JPanel {
                     try {
                         // active priority textbox
                         if (Constant.defaultTypeAlgorithm.equals("PP") || Constant.defaultTypeAlgorithm.equals("PNP")) {
-                            EastPanel_AddProcessPanel.textFieldPriority.setEnabled(true);
+                            EastPanel_AddProcessPanel.txtPriority.setEnabled(true);
                         } else {
-                            EastPanel_AddProcessPanel.textFieldPriority.setEnabled(false);
+                            EastPanel_AddProcessPanel.txtPriority.setEnabled(false);
                         }
 
                         // send type and list process to server

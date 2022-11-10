@@ -8,6 +8,7 @@ import Client.Choose_Server;
 import Client.Dijkstra.MainDijkstra;
 import Client.LapLichCPU.App.MainPanel;
 import UI.model.header;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,7 +18,9 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import UI.model.navItem;
+
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Toolkit;
@@ -45,7 +48,6 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
 /**
- *
  * @author Trần Kim Phú
  */
 public class Client extends JFrame implements MouseListener {
@@ -53,15 +55,15 @@ public class Client extends JFrame implements MouseListener {
     private boolean flag = true;
     private JPanel header, nav, main;
     private int DEFAULT_HEIGHT = 650, DEFALUT_WIDTH = 1240;
-    private ArrayList<String> navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm
-    private ArrayList<navItem> navObj = new ArrayList<>();  //Chứa cái button trên thanh menu
+    private ArrayList<String> navItem = new ArrayList<>();  // chứa thông tin có button cho menu
+    private ArrayList<navItem> navObj = new ArrayList<>();  // chứa button trên thanh menu
 
     public static Socket socket = null;
     public static DataOutputStream out;
     public static DataInputStream in;
     BufferedReader stdIn = null;
     private final int keySize = 2048;
-    public static int port = 4323;
+    public static int port = 4334;
 
     public static PublicKey pubServer; // server key
 
@@ -180,7 +182,7 @@ public class Client extends JFrame implements MouseListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-//    ****************************Header****************************************
+        // header
         header = new JPanel(null);
         header.setBackground(new Color(25, 25, 34));
         header.setPreferredSize(new Dimension(DEFALUT_WIDTH, 40));
@@ -208,7 +210,7 @@ public class Client extends JFrame implements MouseListener {
 
         header.add(hmain);
 
-//       *************************************nav********************************
+        // nav
         nav = new JPanel(null);
         nav.setBackground(new Color(55, 63, 81));
         nav.setPreferredSize(new Dimension(220, DEFAULT_HEIGHT));
@@ -223,15 +225,11 @@ public class Client extends JFrame implements MouseListener {
 
         outNav();
 
-        /**
-         * ********** PHẦN MAIN ( HIỂN THỊ ) *************************
-         */
+
+        // phần main (hiển thị)
         main = new JPanel(null);
         navObj.get(0).doActive();
         changeMainInfo(0);
-        /**
-         * ***********************************************************
-         */
 
         add(header, BorderLayout.NORTH);
         add(scroll, BorderLayout.WEST);
@@ -249,23 +247,14 @@ public class Client extends JFrame implements MouseListener {
             navObj.add(new navItem(s, new Rectangle(0, 200 + 50 * i, 220, 50), icon, iconActive));
             navObj.get(i).addMouseListener(this);
         }
-        if (!flag && navObj.size() > 8) //Đổi màu phần DropDown của thống kê
-        {
-//            for (Integer permission : permissions) {
-//                if (permission == 5) {
-//                    navObj.get(permission - 1).setColorNormal(new Color(255, 177, 66));
-//                    navObj.get(permission).setColorNormal(new Color(255, 177, 66));
-//                }
-//            }
+        if (!flag && navObj.size() > 8) {
             navObj.get(4).setColorNormal(new Color(86, 94, 127));
             navObj.get(5).setColorNormal(new Color(86, 94, 127));
         }
 
-        //Xuất ra Naigation
+        // xuất ra Naigation
         nav.removeAll();
         JLabel profile = new JLabel(new ImageIcon("./src/main/java/img/profile_150px.png"));
-//        JLabel profile = new JLabel(new ImageIcon("./src/main/java/image/QLSP_20px.png"));
-//
         profile.setBounds(0, 0, 210, 210);
         nav.add(profile);
         for (navItem n : navObj) {
@@ -275,12 +264,8 @@ public class Client extends JFrame implements MouseListener {
         revalidate();
     }
 
-    public void changeMainInfo(int i) throws FileNotFoundException //Đổi Phần hiển thị khi bấm btn trên menu
-    {
-//        if (flag && i > 4 && i < 8) // Thay đổi nếu Thông kế đang dropdown
-//        {
-//            i = i + 2;
-//        }
+    public void changeMainInfo(int i) throws FileNotFoundException {
+        // đổi phần hiển thị khi bấm btn trên menu
         switch (i) {
             case 0: //  DIJKSTRA
                 main.removeAll();

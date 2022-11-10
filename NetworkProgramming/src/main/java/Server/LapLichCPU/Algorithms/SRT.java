@@ -6,6 +6,7 @@ package Server.LapLichCPU.Algorithms;
 
 import Server.LapLichCPU.Entity.Event;
 import Server.LapLichCPU.Entity.Row;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -13,10 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
  * @author trankimphu0609
  */
-// ShortestRemainingTime class
 public class SRT extends CPUScheduler {
 
     @Override

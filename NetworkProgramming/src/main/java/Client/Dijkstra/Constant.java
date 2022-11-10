@@ -5,7 +5,6 @@
 package Client.Dijkstra;
 
 /**
- *
  * @author trankimphu0609
  */
 public class Constant {
@@ -18,5 +17,5 @@ public class Constant {
 
     public static int addNodeFormWidth = 300;
 
-    public static String testFilesPath = System.getProperty("user.dir") + "/src/main/java/testfile";
+    public static String testFilesPath = System.getProperty("user.dir") + "/src/main/java/test";
 }

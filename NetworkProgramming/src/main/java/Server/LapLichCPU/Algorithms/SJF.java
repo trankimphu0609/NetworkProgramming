@@ -6,16 +6,15 @@ package Server.LapLichCPU.Algorithms;
 
 import Server.LapLichCPU.Entity.Event;
 import Server.LapLichCPU.Entity.Row;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
- *
  * @author trankimphu0609
  */
 
-// ShortestJobFirst class
 public class SJF extends CPUScheduler {
 
     @Override

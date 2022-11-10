@@ -13,12 +13,12 @@ import Server.LapLichCPU.Algorithms.SJF;
 import Server.LapLichCPU.Algorithms.SRT;
 import Server.LapLichCPU.Entity.Row;
 import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author trankimphu0609
  */
 public class ExecuteCPUAlgorithm {
