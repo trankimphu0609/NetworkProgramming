@@ -4,15 +4,17 @@
  */
 package Client.LapLichCPU.App;
 
-//import Client.Client;
 import UI.Client;
 
 import Client.LapLichCPU.Constant.Constant;
 import Client.LapLichCPU.Entity.ResultAfterExecuteAlgorithm;
+
 import static Client.LapLichCPU.Control.Process_TablePanelAction.renderGraph;
 import static Client.LapLichCPU.Control.Process_TablePanelAction.updateTable;
+
 import Client.LapLichCPU.Entity.Row;
 import com.google.gson.Gson;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -36,7 +38,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author trankimphu0609
  */
 public class EastPanel_TableShowProcess extends JPanel {

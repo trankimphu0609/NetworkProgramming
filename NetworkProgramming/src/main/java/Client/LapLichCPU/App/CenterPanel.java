@@ -8,10 +8,6 @@ import Client.LapLichCPU.Constant.Constant;
 
 import java.awt.Dimension;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
 
 /**
  * @author trankimphu0609

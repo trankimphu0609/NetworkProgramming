@@ -5,12 +5,12 @@
 package Client.LapLichCPU.App;
 
 import Client.LapLichCPU.Constant.Constant;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 
 /**
- *
  * @author trankimphu0609
  */
 public class EastPanel extends JPanel {
@@ -30,5 +30,5 @@ public class EastPanel extends JPanel {
         add(addProcessPanel, BorderLayout.CENTER);
         add(processTablePanel, BorderLayout.SOUTH);
     }
-    
+
 }

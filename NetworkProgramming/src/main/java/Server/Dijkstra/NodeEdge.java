@@ -5,7 +5,6 @@
 package Server.Dijkstra;
 
 /**
- *
  * @author trankimphu0609
  */
 public class NodeEdge {

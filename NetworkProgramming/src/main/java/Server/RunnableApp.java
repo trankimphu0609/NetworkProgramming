@@ -7,6 +7,7 @@ package Server;
 import Server.Dijkstra.Dijkstra;
 import Server.LapLichCPU.ExecuteCPUAlgorithm;
 import com.google.gson.Gson;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -27,7 +28,6 @@ import java.util.List;
 import javax.crypto.Cipher;
 
 /**
- *
  * @author trankimphu0609
  */
 public class RunnableApp implements Runnable {
@@ -52,7 +52,7 @@ public class RunnableApp implements Runnable {
         in = new DataInputStream(socket.getInputStream());
         out = new DataOutputStream(socket.getOutputStream());
 
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA"); 
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
 //        general public and private keys of current client connected
         keyPairGenerator.initialize(keySize, new SecureRandom());
         KeyPair keyPair = keyPairGenerator.genKeyPair();

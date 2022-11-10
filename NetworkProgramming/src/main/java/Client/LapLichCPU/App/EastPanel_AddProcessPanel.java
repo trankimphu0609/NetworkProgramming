@@ -4,16 +4,18 @@
  */
 package Client.LapLichCPU.App;
 
-//import Client.Client;
 import UI.Client;
 
 import Client.LapLichCPU.Constant.Constant;
 import Client.LapLichCPU.Control.Process_TablePanelAction;
+
 import static Client.LapLichCPU.Control.Process_TablePanelAction.renderGraph;
 import static Client.LapLichCPU.Control.Process_TablePanelAction.updateTable;
+
 import Client.LapLichCPU.Entity.ResultAfterExecuteAlgorithm;
 import Client.LapLichCPU.Entity.Row;
 import com.google.gson.Gson;
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -36,61 +38,51 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- *
  * @author trankimphu0609
  */
 public class EastPanel_AddProcessPanel extends JPanel {
 
-    public static JLabel labelTitleOption;
-    public static JLabel labelProcessName;
-    public static JLabel labelProcessTime;
-    public static JLabel labelProcessTimeStart;
-    public static JLabel labelPriority;
+    public static JLabel lblTitleOption, lblProcessName, lblProcessTime, lblProcessTimeStart, lblPriority;
 
-    public static JTextField textFieldPriority;
-    public static JTextField textFieldProcessName;
-    public static JTextField textFieldProcessTime;
-    public static JTextField textFieldProcessTimeStart;
+    public static JTextField txtPriority, txtProcessName, txtProcessTime, txtProcessTimeStart;
 
-    public static JButton buttonAddProcess;
-
-    public static JButton buttonChooseFile;
+    public static JButton btnAddProcess, btnChooseFile;
 
     EastPanel_AddProcessPanel() {
         setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, 200));
         setBorder(BorderFactory.createTitledBorder(Constant.ADDING_PANEL_NAME));
 
-        labelTitleOption = new JLabel("Import By File");
-        buttonChooseFile = new JButton("Choose file here");
+        lblTitleOption = new JLabel("Import File:");
+        btnChooseFile = new JButton("Choose file here");
         // Chọn file
-        buttonChooseFile.addActionListener((var arg0) -> {
+        btnChooseFile.addActionListener((var arg0) -> {
             handleClickChooseFile();
         });
-        labelProcessName = new JLabel("Process Name");
-        labelProcessTime = new JLabel("Process Time (ms)");
-        labelProcessTimeStart = new JLabel("Process Time Start (ms)");
-        labelPriority = new JLabel("Priority");
+        lblProcessName = new JLabel("Process Name");
+        lblProcessTime = new JLabel("Process Time (ms)");
+        lblProcessTimeStart = new JLabel("Process Time Start (ms)");
+        lblPriority = new JLabel("Priority");
 
-        textFieldPriority = new JTextField(200);
-        textFieldPriority.setEnabled(false);
-        textFieldProcessName = new JTextField(200);
+        txtPriority = new JTextField(200);
+        txtPriority.setEnabled(false);
+        txtProcessName = new JTextField(200);
 
 //        textFieldProcessName.setText(Constant.prefixNameProcess + String.valueOf(Constant.startNumberProcess)); // For Process auto increament
 //        textFieldProcessName.setEditable(false);
-        textFieldProcessName.setText(Constant.defaultStartProcessName);
-        textFieldProcessName.setToolTipText("Please enter Process name");
+        txtProcessName.setText(Constant.defaultStartProcessName);
+        txtProcessName.setToolTipText("Please enter Process name");
 
-        labelProcessTime.setToolTipText("Please enter Process time ");
-        labelProcessTimeStart.setToolTipText("Please enter Process time start");
+        lblProcessTime.setToolTipText("Please enter Process time ");
+        lblProcessTimeStart.setToolTipText("Please enter Process time start");
 
-        textFieldProcessTime = new JTextField(200);
-        textFieldProcessTimeStart = new JTextField(200);
-        buttonAddProcess = new JButton("Add process");
-        buttonAddProcess.addActionListener((ActionEvent arg0) -> {
+        txtProcessTime = new JTextField(200);
+        txtProcessTimeStart = new JTextField(200);
+        btnAddProcess = new JButton("Add process");
+        btnAddProcess.addActionListener((ActionEvent arg0) -> {
             String processName = Constant.textFieldProcessName.getText();
             String processTime = Constant.textFieldProcessTime.getText();
             String processTimeStart = Constant.textFieldProcessTimeStart.getText();
-            String processPriority = textFieldPriority.getText();
+            String processPriority = txtPriority.getText();
 
             if (processName.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please enter Process Name");
@@ -208,9 +200,9 @@ public class EastPanel_AddProcessPanel extends JPanel {
         });
 
         // refer to constant file
-        Constant.textFieldProcessName = textFieldProcessName;
-        Constant.textFieldProcessTime = textFieldProcessTime;
-        Constant.textFieldProcessTimeStart = textFieldProcessTimeStart;
+        Constant.textFieldProcessName = txtProcessName;
+        Constant.textFieldProcessTime = txtProcessTime;
+        Constant.textFieldProcessTimeStart = txtProcessTimeStart;
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -220,68 +212,68 @@ public class EastPanel_AddProcessPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(labelTitleOption, gbc);
+        add(lblTitleOption, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(buttonChooseFile, gbc);
+        add(btnChooseFile, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(labelProcessName, gbc);
+        add(lblProcessName, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(textFieldProcessName, gbc);
+        add(txtProcessName, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(labelProcessTimeStart, gbc);
+        add(lblProcessTimeStart, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 2;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(textFieldProcessTimeStart, gbc);
+        add(txtProcessTimeStart, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(labelProcessTime, gbc);
+        add(lblProcessTime, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 3;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(textFieldProcessTime, gbc);
+        add(txtProcessTime, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(labelPriority, gbc);
+        add(lblPriority, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 1;
         gbc.gridy = 4;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(textFieldPriority, gbc);
+        add(txtPriority, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 2;
         gbc.insets = new Insets(5, 5, 5, 5);
-        add(buttonAddProcess, gbc);
+        add(btnAddProcess, gbc);
     }
 
     // cái này là upload file lên
@@ -358,8 +350,6 @@ public class EastPanel_AddProcessPanel extends JPanel {
                 renderGraph(result);
                 // Update table
                 Process_TablePanelAction.updateTable();
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(EastPanel_AddProcessPanel.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
                 Logger.getLogger(EastPanel_AddProcessPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

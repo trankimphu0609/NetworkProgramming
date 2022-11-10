@@ -5,11 +5,10 @@
 package Client.LapLichCPU.Entity;
 
 /**
- *
  * @author trankimphu0609
  */
 public class Row {
-    
+
     private String processName;
     private int arrivalTime;
     private int burstTime;
@@ -96,5 +95,5 @@ public class Row {
     public String toString() {
         return "Row{" + "processName=" + processName + ", arrivalTime=" + arrivalTime + ", burstTime=" + burstTime + ", priorityLevel=" + priorityLevel + ", waitingTime=" + waitingTime + ", turnaroundTime=" + turnaroundTime + '}';
     }
-    
+
 }

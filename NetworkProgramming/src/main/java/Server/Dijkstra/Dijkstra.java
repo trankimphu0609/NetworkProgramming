@@ -11,12 +11,12 @@ import es.usc.citius.hipster.graph.GraphBuilder;
 import es.usc.citius.hipster.graph.GraphSearchProblem;
 import es.usc.citius.hipster.graph.HipsterGraph;
 import es.usc.citius.hipster.model.problem.SearchProblem;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author trankimphu0609
  */
 public final class Dijkstra {
@@ -29,11 +29,10 @@ public final class Dijkstra {
         applyEdgesFromJsonString(edges);
     }
 
-    public boolean validateGraph(String startNode, String endNode) {
-        // Init graph
-        GraphBuilder<String, Integer> g = GraphBuilder.<String, Integer>create();
-        // Connect edge to graph
-        for (int i = 0; i < edges.size(); i++) {
+    public boolean validateGraph(String nodeStart, String nodeEnd) {
+        GraphBuilder<String, Integer> g = GraphBuilder.<String, Integer>create(); // bắt đầu đồ thị
+
+        for (int i = 0; i < edges.size(); i++) { // kết nối edge tới đồ thị
             NodeEdge edge = edges.get(i);
             g.connect(edge.getSource()).to(edge.getDestination()).withEdge(edge.getWeight());
         }
@@ -41,28 +40,25 @@ public final class Dijkstra {
         HipsterGraph<String, Integer> graph = g.createUndirectedGraph();
 
         Iterable<String> vertices = graph.vertices();
-        String mainNode = startNode.isBlank() ? edges.get(0).getSource() : startNode;
+        String mainNode = nodeStart.isBlank() ? edges.get(0).getSource() : nodeStart;
 
-        // Create the search problem from mainNode
+        // tạo tìm kiếm từ mainNode
         SearchProblem p = GraphSearchProblem
                 .startingFrom(mainNode)
                 .in(graph)
                 .takeCostsFromEdges()
                 .build();
 
-        // Validate if has endNode
-        if (!endNode.isBlank()) {
-            Algorithm.SearchResult result = Hipster.createDijkstra(p).search(endNode);
+        if (!nodeEnd.isBlank()) { // nếu có nodeEnd
+            Algorithm.SearchResult result = Hipster.createDijkstra(p).search(nodeEnd);
             List<String> path = (List<String>) result.getOptimalPaths().get(0);
-            if (!path.contains(endNode)) {
+            if (!path.contains(nodeEnd)) {
                 isValid = false;
                 return false;
             }
         } else {
-            // Valid graph is each node has path from mainNode to destNode
-            vertices.forEach((destNode) -> {
-                // Search the shortest path from "A" to "C"
-                Algorithm.SearchResult result = Hipster.createDijkstra(p).search(destNode);
+            vertices.forEach((destNode) -> { // đồ thị sẽ hợp lệ là mỗi nút có đường dẫn từ mainNode đến destNode
+                Algorithm.SearchResult result = Hipster.createDijkstra(p).search(destNode); // tìm kiếm đường đi ngắn nhất
                 List<String> path = (List<String>) result.getOptimalPaths().get(0);
                 if (!path.contains(destNode)) {
                     isValid = false;
@@ -74,12 +70,10 @@ public final class Dijkstra {
         return isValid;
     }
 
-    public List<String> getShortestPath(String startNode, String endNode) {
+    public List<String> getShortestPath(String nodeStart, String nodeEnd) {
         try {
-            // Init graph
-            GraphBuilder<String, Integer> g = GraphBuilder.<String, Integer>create();
-            // Connect edge to graph
-            for (int i = 0; i < edges.size(); i++) {
+            GraphBuilder<String, Integer> g = GraphBuilder.<String, Integer>create(); // bắt đầu đồ thị
+            for (int i = 0; i < edges.size(); i++) { // kết nối edge tới đồ thị
                 NodeEdge edge = edges.get(i);
                 g.connect(edge.getSource()).to(edge.getDestination()).withEdge(edge.getWeight());
             }
@@ -87,18 +81,17 @@ public final class Dijkstra {
             HipsterGraph<String, Integer> graph = g.createUndirectedGraph();
 
             SearchProblem p = GraphSearchProblem
-                    .startingFrom(startNode)
+                    .startingFrom(nodeStart)
                     .in(graph)
                     .takeCostsFromEdges()
                     .build();
 
-            // Search the shortest path from "A" to "C"
-            Algorithm.SearchResult result = Hipster.createDijkstra(p).search(endNode);
+            Algorithm.SearchResult result = Hipster.createDijkstra(p).search(nodeEnd); // tìm kiếm đường đi ngắn nhất
             List<String> path = (List<String>) result.getOptimalPaths().get(0);
             System.out.println(path);
             return path;
         } catch (Exception e) {
-            System.out.println("Get shortest path fail");
+            System.out.println("Get Shortest Path Fail!!!");
             return null;
         }
     }

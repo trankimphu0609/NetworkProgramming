@@ -4,15 +4,14 @@
  */
 package Client.LapLichCPU.App;
 
-
 import Client.LapLichCPU.Entity.Row;
 import Client.LapLichCPU.Constant.Constant;
+
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
- *
  * @author trankimphu0609
  */
 public class MainPanel extends JPanel {
@@ -42,4 +41,3 @@ public class MainPanel extends JPanel {
         this.add(eastPanel, BorderLayout.EAST);
     }
 }
-

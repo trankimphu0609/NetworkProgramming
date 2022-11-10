@@ -8,10 +8,12 @@ import Client.LapLichCPU.Constant.Constant;
 import Client.LapLichCPU.Entity.Event;
 import Client.LapLichCPU.Entity.ProcessResult;
 import Client.LapLichCPU.Entity.ResultAfterExecuteAlgorithm;
+
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -27,7 +29,6 @@ import org.jfree.data.gantt.TaskSeriesCollection;
 import org.jfree.data.time.SimpleTimePeriod;
 
 /**
- *
  * @author trankimphu0609
  */
 public class Process_TablePanelAction {
@@ -123,8 +124,8 @@ public class Process_TablePanelAction {
         // add new
         for (int i = 0; i < Constant.arrayListProcess.size(); i++) {
             Constant.defaultTableModel.addRow(new Object[]{Constant.arrayListProcess.get(i).getProcessName(),
-                Constant.arrayListProcess.get(i).getArrivalTime(),
-                Constant.arrayListProcess.get(i).getBurstTime(), Constant.arrayListProcess.get(i).getPriorityLevel()});
+                    Constant.arrayListProcess.get(i).getArrivalTime(),
+                    Constant.arrayListProcess.get(i).getBurstTime(), Constant.arrayListProcess.get(i).getPriorityLevel()});
         }
         Constant.defaultTableModel.fireTableDataChanged();
     }

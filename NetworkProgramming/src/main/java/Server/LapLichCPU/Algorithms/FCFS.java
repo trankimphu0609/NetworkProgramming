@@ -6,15 +6,14 @@ package Server.LapLichCPU.Algorithms;
 
 import Server.LapLichCPU.Entity.Event;
 import Server.LapLichCPU.Entity.Row;
+
 import java.util.Collections;
 import java.util.List;
 
 /**
- *
  * @author trankimphu0609
  */
 
-//FirstComeFirstServe class
 public class FCFS extends CPUScheduler {
 
     @Override

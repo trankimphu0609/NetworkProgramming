@@ -7,7 +7,6 @@ package Server.LapLichCPU.Entity;
 import java.util.ArrayList;
 
 /**
- *
  * @author trankimphu0609
  */
 public class ResultAfterExecuteAlgorithm {

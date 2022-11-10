@@ -5,11 +5,10 @@
 package Client.LapLichCPU.Entity;
 
 /**
- *
  * @author trankimphu0609
  */
 public class ProcessResult {
-    
+
     // class ProcessResult => bỏ render ra chart
     private String processName;
     private int processStart;

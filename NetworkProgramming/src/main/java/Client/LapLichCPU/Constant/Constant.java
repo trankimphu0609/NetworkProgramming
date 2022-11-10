@@ -5,18 +5,19 @@
 package Client.LapLichCPU.Constant;
 
 import Client.LapLichCPU.Entity.Row;
+
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.gantt.GanttCategoryDataset;
 
 /**
- *
  * @author trankimphu0609
  */
 public class Constant {
@@ -57,6 +58,6 @@ public class Constant {
     public static JTextField textFieldProcessName = null;
     public static JTextField textFieldProcessTime = null;
     public static JTextField textFieldProcessTimeStart = null;
-    public static String testFilesPath = System.getProperty("user.dir") + "/src/main/java/testfile";
+    public static String testFilesPath = System.getProperty("user.dir") + "/src/main/java/test";
 
 }
