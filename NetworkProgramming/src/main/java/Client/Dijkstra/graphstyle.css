@@ -2,14 +2,14 @@ node {
     size: 26px, 26px;
     shape: circle;
     fill-color: black;
-    text-color: gray;
+    text-color: white;
     text-style: bold;
     text-offset: 1px, -3px;
     text-size: 15;
 }
 
 node.active {
-    fill-color: red;
+    fill-color: purple;
 }
 
 edge {
@@ -23,6 +23,6 @@ edge {
 }
 
 edge.active {
-    fill-color: red;
-    text-color: red;
+    fill-color: purple;
+    text-color: purple;
 }

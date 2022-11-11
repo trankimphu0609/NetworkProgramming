@@ -14,21 +14,23 @@ import javax.swing.JPanel;
  * @author trankimphu0609
  */
 public class EastPanel extends JPanel {
-    public static EastPanel_AddProcessPanel addProcessPanel;
-    public static EastPanel_TableShowProcess processTablePanel;
-    public static EastPanel_ChooseTypeAlgorithmPanel chooseTypeAlgorithmPanel;
+
+    public static EastPanel_AddProcessPanel pnlAddProcess;
+    public static EastPanel_TableShowProcess pnlProcessTable;
+    public static EastPanel_ChooseTypeAlgorithmPanel pnlChooseTypeAlgorithm;
 
     EastPanel() {
         setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, Constant.HEIGHT_PANEL));
         setLayout(new BorderLayout());
 
-        addProcessPanel = new EastPanel_AddProcessPanel();
-        processTablePanel = new EastPanel_TableShowProcess();
-        chooseTypeAlgorithmPanel = new EastPanel_ChooseTypeAlgorithmPanel();
+        pnlAddProcess = new EastPanel_AddProcessPanel();
+        pnlProcessTable = new EastPanel_TableShowProcess();
+        pnlChooseTypeAlgorithm = new EastPanel_ChooseTypeAlgorithmPanel();
 
-        add(chooseTypeAlgorithmPanel, BorderLayout.NORTH);
-        add(addProcessPanel, BorderLayout.CENTER);
-        add(processTablePanel, BorderLayout.SOUTH);
+        add(pnlAddProcess, BorderLayout.SOUTH);
+        add(pnlProcessTable, BorderLayout.CENTER);
+        add(pnlChooseTypeAlgorithm, BorderLayout.NORTH);
+
     }
 
 }
