@@ -85,11 +85,11 @@ public class EastPanel_AddProcessPanel extends JPanel {
             String processPriority = txtPriority.getText();
 
             if (processName.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter Process Name");
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập Process Name!");
             } else if (processTime.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter Process Time");
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập Process Time");
             } else if (processTime.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter Process Time Start");
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập Process Time Start");
 
             } else {
                 Row row = null;

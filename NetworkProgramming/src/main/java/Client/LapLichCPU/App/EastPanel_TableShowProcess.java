@@ -43,7 +43,7 @@ import javax.swing.table.DefaultTableModel;
 public class EastPanel_TableShowProcess extends JPanel {
 
     public static JScrollPane jScrollPane;
-    public static JTable tableProcess;
+    public static JTable tblProcess;
     public static DefaultTableModel defaultTableModel;
 
     public EastPanel_TableShowProcess() {
@@ -60,26 +60,26 @@ public class EastPanel_TableShowProcess extends JPanel {
         // refer to constant file
         Constant.defaultTableModel = defaultTableModel;
 
-        tableProcess = new JTable(defaultTableModel);
-        jScrollPane = new JScrollPane(tableProcess);
+        tblProcess = new JTable(defaultTableModel);
+        jScrollPane = new JScrollPane(tblProcess);
         jScrollPane.setSize(Constant.WIDTH_EAST_PANEL, Constant.HEIGHT_PANEL / 2);
-        tableProcess.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        tblProcess.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent arg0) {
-                System.out.println("User is choosing at row " + tableProcess.getSelectedRow());
+                System.out.println("User is choosing at row " + tblProcess.getSelectedRow());
             }
         });
         int condition = JTable.WHEN_FOCUSED;
-        InputMap inputMap = tableProcess.getInputMap(condition);
-        ActionMap actionMap = tableProcess.getActionMap();
+        InputMap inputMap = tblProcess.getInputMap(condition);
+        ActionMap actionMap = tblProcess.getActionMap();
 
         // khi nhấn nút delete thì xóa row đó
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0), "deleteRow");
         actionMap.put("deleteRow", new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
-                int row = tableProcess.getSelectedRow();
+                int row = tblProcess.getSelectedRow();
                 if (row >= 0) {
-                    DefaultTableModel model = (DefaultTableModel) tableProcess.getModel();
+                    DefaultTableModel model = (DefaultTableModel) tblProcess.getModel();
                     model.removeRow(row);
                     Constant.arrayListProcess.remove(row);
                     try {
@@ -102,19 +102,19 @@ public class EastPanel_TableShowProcess extends JPanel {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                int totalRow = tableProcess.getModel().getRowCount();
+                int totalRow = tblProcess.getModel().getRowCount();
                 ArrayList<Row> temp = new ArrayList<>();
                 boolean isShouldUpdate = true;
                 for (int i = 0; i < totalRow; i++) {
-                    String processName = tableProcess.getModel().getValueAt(i, 0).toString();
+                    String processName = tblProcess.getModel().getValueAt(i, 0).toString();
                     int processTimeStart = 0;
                     int processBurstTime = 0;
                     int processPriority = 0;
                     try {
                         // kiểm tra là số
-                        processTimeStart = Integer.parseInt(tableProcess.getModel().getValueAt(i, 1).toString());
-                        processBurstTime = Integer.parseInt(tableProcess.getModel().getValueAt(i, 2).toString());
-                        processPriority = Integer.parseInt(tableProcess.getModel().getValueAt(i, 3).toString());
+                        processTimeStart = Integer.parseInt(tblProcess.getModel().getValueAt(i, 1).toString());
+                        processBurstTime = Integer.parseInt(tblProcess.getModel().getValueAt(i, 2).toString());
+                        processPriority = Integer.parseInt(tblProcess.getModel().getValueAt(i, 3).toString());
                     } catch (NumberFormatException e) {
                         JOptionPane.showMessageDialog(null, "process at row " + i + " has value which is not a number", "Error",
                                 JOptionPane.ERROR_MESSAGE);
