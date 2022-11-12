@@ -47,7 +47,7 @@ public class EastPanel_TableShowProcess extends JPanel {
     public static DefaultTableModel defaultTableModel;
 
     public EastPanel_TableShowProcess() {
-        setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, 150));
+        setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, 250));
         setBorder(BorderFactory.createTitledBorder(Constant.PROCESS_TABLE_NAME));
         setLayout(new BorderLayout());
 

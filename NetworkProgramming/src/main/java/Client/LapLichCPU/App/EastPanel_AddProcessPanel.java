@@ -49,7 +49,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
     public static JButton btnAddProcess, btnChooseFile;
 
     EastPanel_AddProcessPanel() {
-        setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, 200));
+        setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, 250));
         setBorder(BorderFactory.createTitledBorder(Constant.ADDING_PANEL_NAME));
 
         lblTitleOption = new JLabel("Import File:");

@@ -1,11 +1,11 @@
 node {
-    size: 26px, 26px;
+    size: 30px, 30px;
     shape: circle;
     fill-color: black;
     text-color: white;
     text-style: bold;
-    text-offset: 1px, -3px;
-    text-size: 15;
+    text-offset: 1px, -2px;
+    text-size: 13;
 }
 
 node.active {
@@ -15,11 +15,11 @@ node.active {
 edge {
     text-alignment: above;
     text-style: bold;
-    text-size: 15;
+    text-size: 12;
     text-background-mode: plain;
     text-background-color: white;
-    text-padding: 3px;
-    arrow-size: 13px, 7px;
+    text-padding: 2px;
+    arrow-size: 10px, 7px;
 }
 
 edge.active {
