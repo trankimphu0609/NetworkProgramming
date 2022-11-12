@@ -21,7 +21,7 @@ public class navItem extends JPanel implements MouseListener {
 
     private JLabel lb, icon;
     private Color hover = new Color(255, 218, 121);
-    private Color normal = new Color(192, 109, 31);
+    private Color normal = new Color(55, 63, 81);
     private boolean active;
     private String name, img, imgActive, imgHover;
     private Rectangle rec = new Rectangle();
