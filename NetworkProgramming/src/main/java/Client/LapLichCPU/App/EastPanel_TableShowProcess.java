@@ -52,9 +52,9 @@ public class EastPanel_TableShowProcess extends JPanel {
         setLayout(new BorderLayout());
 
         defaultTableModel = new DefaultTableModel();
-        defaultTableModel.addColumn("Process Name");
+        defaultTableModel.addColumn("Process");
         defaultTableModel.addColumn("Time start");
-        defaultTableModel.addColumn("Process time");
+        defaultTableModel.addColumn("Time");
         defaultTableModel.addColumn("Priority");
 
         // refer to constant file
@@ -97,7 +97,7 @@ public class EastPanel_TableShowProcess extends JPanel {
             }
         });
         add(jScrollPane, BorderLayout.CENTER);
-        JButton saveButton = new JButton("Save table");
+        JButton saveButton = new JButton("LƯU BẢNG");
         add(saveButton, BorderLayout.SOUTH);
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -116,7 +116,7 @@ public class EastPanel_TableShowProcess extends JPanel {
                         processBurstTime = Integer.parseInt(tblProcess.getModel().getValueAt(i, 2).toString());
                         processPriority = Integer.parseInt(tblProcess.getModel().getValueAt(i, 3).toString());
                     } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(null, "process at row " + i + " has value which is not a number", "Error",
+                        JOptionPane.showMessageDialog(null, "Tiến trình tại hàng " + i + " có giá trị không là số", "Error",
                                 JOptionPane.ERROR_MESSAGE);
                         isShouldUpdate = false;
                         break;
@@ -131,7 +131,7 @@ public class EastPanel_TableShowProcess extends JPanel {
 
                     // kiểm tra trùng tên process
                     if (flag != -1) {
-                        JOptionPane.showMessageDialog(null, "Duplicated name at row " + (i + 1) + " with row " + (flag + 1), "Error",
+                        JOptionPane.showMessageDialog(null, "Hàng " + (i + 1) + " trùng tên với hàng " + (flag + 1), "Error",
                                 JOptionPane.ERROR_MESSAGE);
                         isShouldUpdate = false;
                         break;

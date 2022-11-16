@@ -50,11 +50,11 @@ public class Constant {
     public static Color COLOR_BORDER = Color.darkGray;
 
     // ProcessTablePanel
-    public static String PROCESS_TABLE_NAME = "Table all process";
+    public static String PROCESS_TABLE_NAME = "BẢNG TIẾN TRÌNH";
     public static DefaultTableModel defaultTableModel = null;
 
     // AddProcessPanel
-    public static String ADDING_PANEL_NAME = "Add process";
+    public static String ADDING_PANEL_NAME = "THÊM TIẾN TRÌNH";
     public static JTextField textFieldProcessName = null;
     public static JTextField textFieldProcessTime = null;
     public static JTextField textFieldProcessTimeStart = null;

@@ -1,37 +1,37 @@
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\RunnableApp.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\MainDijkstra.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\Row.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\CPUScheduler.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\UI\Server.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel_AddProcessPanel.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\UI\model\navItem.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\NodeEdge.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\NodeGraph.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\ResultAfterExecuteAlgorithm.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\RR.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\Choose_Server.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\SJF.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Control\Process_TablePanelAction.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\Row.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\PP.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\Dijkstra\NodeEdge.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\ProcessResult.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\UI\model\header.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\ExecuteCPUAlgorithm.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\ProcessResult.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\SRT.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\Event.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\Constant.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Constant\Constant.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\UI\Client.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\Utility.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel_TableShowProcess.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\MainPanel.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel_ChooseTypeAlgorithmPanel.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\PNP.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\ResultAfterExecuteAlgorithm.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\CenterPanel.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\Dijkstra\Dijkstra.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\FCFS.java
-D:\SGU (1)\YEAR 4 -HK1\LTM\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\Event.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\UI\model\header.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\FCFS.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\Event.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\ProcessResult.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\Choose_Server.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Constant\Constant.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel_ChooseTypeAlgorithmPanel.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\SJF.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\Utility.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\PNP.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\RunnableApp.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\CPUScheduler.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\Row.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\Constant.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\ExecuteCPUAlgorithm.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\MainPanel.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\SRT.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\ResultAfterExecuteAlgorithm.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\UI\model\navItem.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\ResultAfterExecuteAlgorithm.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Entity\Row.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\Control\Process_TablePanelAction.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\PP.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\MainDijkstra.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\NodeEdge.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\Event.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\CenterPanel.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\UI\Client.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\Dijkstra\NodeGraph.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\Dijkstra\Dijkstra.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\UI\Server.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel_AddProcessPanel.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Client\LapLichCPU\App\EastPanel_TableShowProcess.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\Dijkstra\NodeEdge.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Entity\ProcessResult.java
+D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\Server\LapLichCPU\Algorithms\RR.java

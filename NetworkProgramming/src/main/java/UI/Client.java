@@ -4,7 +4,6 @@
  */
 package UI;
 
-import Client.Choose_Server;
 import Client.Dijkstra.MainDijkstra;
 import Client.LapLichCPU.App.MainPanel;
 import UI.model.header;
@@ -154,23 +153,6 @@ public class Client extends JFrame implements MouseListener {
         System.out.println("heheh");
     }
 
-    public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Choose_Server form = new Choose_Server();
-                    form.setLocationRelativeTo(null);
-                    form.pack();
-                    form.setVisible(true);
-
-                } catch (Exception ex) {
-                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
-
     public void view() throws FileNotFoundException {
         Font font = new Font("Time new", Font.BOLD, 14);
         setTitle("DIJKSTRA - CPU SCHEDULER");
@@ -215,13 +197,9 @@ public class Client extends JFrame implements MouseListener {
         nav.setBackground(new Color(55, 63, 81));
         nav.setPreferredSize(new Dimension(220, DEFAULT_HEIGHT));
 
-        JScrollPane scroll = new JScrollPane(nav);
-        scroll.getVerticalScrollBar().setPreferredSize(new Dimension(1, 100));
-        scroll.setHorizontalScrollBarPolicy(scroll.HORIZONTAL_SCROLLBAR_NEVER);
-
         navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm ( Tên btn : icon : icon hover )
-        navItem.add("DIJKSTRA:manage-course.png:manage-course.png");
-        navItem.add("CPU SCHEDULER:manage-course.png:manage-course.png");
+        navItem.add("TÌM ĐƯỜNG:icons8-combo-chart-30.png:icons8-combo-chart-30.png");
+        navItem.add("LẬP LỊCH:icons8-planner-30.png:icons8-planner-30.png");
 
         outNav();
 
@@ -232,7 +210,7 @@ public class Client extends JFrame implements MouseListener {
         changeMainInfo(0);
 
         add(header, BorderLayout.NORTH);
-        add(scroll, BorderLayout.WEST);
+        add(nav, BorderLayout.WEST);
         add(main, BorderLayout.CENTER);
 
         setVisible(true);
@@ -254,7 +232,7 @@ public class Client extends JFrame implements MouseListener {
 
         // xuất ra Naigation
         nav.removeAll();
-        JLabel profile = new JLabel(new ImageIcon("./src/main/java/img/profile_150px.png"));
+        JLabel profile = new JLabel(new ImageIcon("./src/main/java/img/business-icon.png"));
         profile.setBounds(0, 0, 210, 210);
         nav.add(profile);
         for (navItem n : navObj) {

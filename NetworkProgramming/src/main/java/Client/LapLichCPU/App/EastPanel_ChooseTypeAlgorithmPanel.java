@@ -37,9 +37,9 @@ public class EastPanel_ChooseTypeAlgorithmPanel extends JPanel {
 
     public EastPanel_ChooseTypeAlgorithmPanel() {
         setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, 50));
-        setBorder(BorderFactory.createTitledBorder("Choose algorithm type"));
+        setBorder(BorderFactory.createTitledBorder("CHỌN THUẬT TOÁN"));
 
-        lblType = new JLabel("Algorithm Type: ");
+        lblType = new JLabel("Thuật toán: ");
         cbAlgorithmArray = new JComboBox<>();
         Constant.defaultTypeAlgorithm = "FCFS";
 

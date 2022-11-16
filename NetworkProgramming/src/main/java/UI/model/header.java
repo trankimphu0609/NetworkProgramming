@@ -34,10 +34,10 @@ public class header extends JLabel {
         JLabel logo = new JLabel(new ImageIcon("./src/main/java/img/header_icon.png"), JLabel.CENTER);
         logo.setBounds(new Rectangle(30, 10, 25, 25));
         Font font = new Font("Segoe UI", Font.BOLD, 15);
-        JLabel name = new JLabel("TEAM FOUR", JLabel.CENTER);
+        JLabel name = new JLabel("ỨNG DỤNG TÌM ĐƯỜNG ĐI NGẮN NHẤT VÀ LẬP LỊCH CPU", JLabel.CENTER);
         name.setFont(font);
         name.setForeground(Color.white);
-        name.setBounds(new Rectangle(60, 0, 280, 40));
+        name.setBounds(new Rectangle(60, 0, 450, 40));
 
         add(logo);
         add(name);

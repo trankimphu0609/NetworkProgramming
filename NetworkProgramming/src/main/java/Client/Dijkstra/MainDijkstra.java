@@ -81,7 +81,7 @@ public class MainDijkstra extends JPanel {
 
 
         // -------------------------------------------------------------------------------------------
-        pnlInputEdge.setBorder(BorderFactory.createTitledBorder("Add An Edge"));
+        pnlInputEdge.setBorder(BorderFactory.createTitledBorder("THÊM MỘT CẠNH"));
 //        pnlInputEdge.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
         pnlInputEdge.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
 
@@ -96,19 +96,19 @@ public class MainDijkstra extends JPanel {
         // y: row
         gridBagConstraints1.gridx = 0;
         gridBagConstraints1.gridy = 0;
-        pnlInputEdge.add(new JLabel("Source Node:"), gridBagConstraints1);
+        pnlInputEdge.add(new JLabel("Nút nguồn:"), gridBagConstraints1);
         gridBagConstraints1.gridx = 1;
         gridBagConstraints1.gridy = 0;
         pnlInputEdge.add(txtSrc, gridBagConstraints1);
         gridBagConstraints1.gridx = 0;
         gridBagConstraints1.gridy = 1;
-        pnlInputEdge.add(new JLabel("Destination Node:"), gridBagConstraints1);
+        pnlInputEdge.add(new JLabel("Nút đích:"), gridBagConstraints1);
         gridBagConstraints1.gridx = 1;
         gridBagConstraints1.gridy = 1;
         pnlInputEdge.add(txtDest, gridBagConstraints1);
         gridBagConstraints1.gridx = 0;
         gridBagConstraints1.gridy = 2;
-        pnlInputEdge.add(new JLabel("Weight:"), gridBagConstraints1);
+        pnlInputEdge.add(new JLabel("Trọng số:"), gridBagConstraints1);
         gridBagConstraints1.gridx = 1;
         gridBagConstraints1.gridy = 2;
         pnlInputEdge.add(txtWeight, gridBagConstraints1);
@@ -118,7 +118,7 @@ public class MainDijkstra extends JPanel {
         pnlInputEdge.add(btnAdd, gridBagConstraints1);
 
         // -------------------------------------------------------------------------------------------
-        pnlUploadFile.setBorder(BorderFactory.createTitledBorder("Upload File"));
+        pnlUploadFile.setBorder(BorderFactory.createTitledBorder("TÌM THEO FILE"));
         pnlUploadFile.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 100));
 
         lblFileName.setPreferredSize(new Dimension(150, 23));
@@ -126,7 +126,7 @@ public class MainDijkstra extends JPanel {
         pnlUploadFile.add(btnChooseFile);
 
         // -------------------------------------------------------------------------------------------
-        pnlFindPath.setBorder(BorderFactory.createTitledBorder("Find Shortest Path"));
+        pnlFindPath.setBorder(BorderFactory.createTitledBorder("TÌM ĐƯỜNG ĐI NGẮN NHẤT"));
         pnlFindPath.setPreferredSize(new Dimension(Constant.addNodeFormWidth - 20, 120));
         GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
 
@@ -138,13 +138,13 @@ public class MainDijkstra extends JPanel {
         // y: row
         gridBagConstraints2.gridx = 0;
         gridBagConstraints2.gridy = 0;
-        pnlFindPath.add(new JLabel("Start Node:"), gridBagConstraints2);
+        pnlFindPath.add(new JLabel("Nút bắt đầu:"), gridBagConstraints2);
         gridBagConstraints2.gridx = 1;
         gridBagConstraints2.gridy = 0;
         pnlFindPath.add(txtStart, gridBagConstraints2);
         gridBagConstraints2.gridx = 0;
         gridBagConstraints2.gridy = 1;
-        pnlFindPath.add(new JLabel("End Node:"), gridBagConstraints2);
+        pnlFindPath.add(new JLabel("Nút kết thúc:"), gridBagConstraints2);
         gridBagConstraints2.gridx = 1;
         gridBagConstraints2.gridy = 1;
         pnlFindPath.add(txtEnd, gridBagConstraints2);
@@ -209,7 +209,7 @@ public class MainDijkstra extends JPanel {
         }
 
         if (src.equals(dest)) {
-            JOptionPane.showMessageDialog(null, "Không được để tên nút src và dest bằng nhau!");
+            JOptionPane.showMessageDialog(null, "Tên nút nguồn và đích phải khác nhau!");
             return null;
         }
 
@@ -221,7 +221,7 @@ public class MainDijkstra extends JPanel {
         }
 
         if (Integer.parseInt(weight) < 1) {
-            JOptionPane.showMessageDialog(null, "Weight phải lớn hơn bằng 1");
+            JOptionPane.showMessageDialog(null, "Trọng số phải lớn hơn hoặc bằng 1");
             return null;
         }
 
@@ -268,7 +268,7 @@ public class MainDijkstra extends JPanel {
                 // regenerate graph layout
                 regenerateGraph();
             } catch (FileNotFoundException ex) {
-                System.out.println("File upload thất bại");
+                System.out.println("Tải file thất bại");
                 System.out.println(ex);
             }
 
@@ -290,7 +290,7 @@ public class MainDijkstra extends JPanel {
                 // validate line
                 String[] items = line.split("-");
                 if (items.length != 3 || items[0].isBlank() || items[1].isBlank() || items[2].isBlank()) {
-                    JOptionPane.showMessageDialog(null, "Sai cú pháp ('src-dest-weight')");
+                    JOptionPane.showMessageDialog(null, "Sai cú pháp ('nguồn-đích-trọng số')");
                 }
 
                 String src = items[0];
@@ -299,7 +299,7 @@ public class MainDijkstra extends JPanel {
                 try {
                     weight = Integer.parseInt(items[2]);
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Sai cú pháp (weight phải là số)");
+                    JOptionPane.showMessageDialog(null, "Sai cú pháp (trọng số phải là số)");
                     // reset graph
                     this.edges = new ArrayList<>();
                     this.path = emptyPath;

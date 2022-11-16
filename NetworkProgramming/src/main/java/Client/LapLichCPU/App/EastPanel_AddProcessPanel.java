@@ -52,16 +52,16 @@ public class EastPanel_AddProcessPanel extends JPanel {
         setPreferredSize(new Dimension(Constant.WIDTH_EAST_PANEL, 250));
         setBorder(BorderFactory.createTitledBorder(Constant.ADDING_PANEL_NAME));
 
-        lblTitleOption = new JLabel("Import File:");
-        btnChooseFile = new JButton("Choose file here");
+        lblTitleOption = new JLabel("Nhập từ file:");
+        btnChooseFile = new JButton("CHỌN FILE");
         // Chọn file
         btnChooseFile.addActionListener((var arg0) -> {
             handleClickChooseFile();
         });
-        lblProcessName = new JLabel("Process Name");
-        lblProcessTime = new JLabel("Process Time (ms)");
-        lblProcessTimeStart = new JLabel("Process Time Start (ms)");
-        lblPriority = new JLabel("Priority");
+        lblProcessName = new JLabel("Tên tiến trình");
+        lblProcessTime = new JLabel("Thời gian (ms)");
+        lblProcessTimeStart = new JLabel("Thời gian bắt đầu (ms)");
+        lblPriority = new JLabel("Độ ưu tiên");
 
         txtPriority = new JTextField(200);
         txtPriority.setEnabled(false);
@@ -70,14 +70,14 @@ public class EastPanel_AddProcessPanel extends JPanel {
 //        textFieldProcessName.setText(Constant.prefixNameProcess + String.valueOf(Constant.startNumberProcess)); // For Process auto increament
 //        textFieldProcessName.setEditable(false);
         txtProcessName.setText(Constant.defaultStartProcessName);
-        txtProcessName.setToolTipText("Please enter Process name");
+        txtProcessName.setToolTipText("Vui lòng nhập tên tiến trình");
 
-        lblProcessTime.setToolTipText("Please enter Process time ");
-        lblProcessTimeStart.setToolTipText("Please enter Process time start");
+        lblProcessTime.setToolTipText("Vui lòng nhập thời gian ");
+        lblProcessTimeStart.setToolTipText("Vui lòng nhập thời gian bắt đầu");
 
         txtProcessTime = new JTextField(200);
         txtProcessTimeStart = new JTextField(200);
-        btnAddProcess = new JButton("Add process");
+        btnAddProcess = new JButton("THÊM TIẾN TRÌNH");
         btnAddProcess.addActionListener((ActionEvent arg0) -> {
             String processName = Constant.textFieldProcessName.getText();
             String processTime = Constant.textFieldProcessTime.getText();
@@ -85,11 +85,11 @@ public class EastPanel_AddProcessPanel extends JPanel {
             String processPriority = txtPriority.getText();
 
             if (processName.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Vui lòng nhập Process Name!");
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập tên tiến trình!");
             } else if (processTime.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Vui lòng nhập Process Time");
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập thời gian");
             } else if (processTime.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Vui lòng nhập Process Time Start");
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập thời gian bắt đầu");
 
             } else {
                 Row row = null;
@@ -99,7 +99,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
                         if (Integer.parseInt(processTimeStart) < 0
                                 || Integer.parseInt(processTime) < 0
                                 || Integer.parseInt(processPriority) < 0) {
-                            JOptionPane.showMessageDialog(null, "Must be >= 0");
+                            JOptionPane.showMessageDialog(null, "Phải >= 0");
                             return;
                         }
                         row = new Row(processName,
@@ -110,7 +110,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
                     } else {
                         if (Integer.parseInt(processTimeStart) < 0
                                 || Integer.parseInt(processTime) < 0) {
-                            JOptionPane.showMessageDialog(null, "Must be >= 0");
+                            JOptionPane.showMessageDialog(null, "Phải >= 0");
                             return;
                         }
                         row = new Row(processName,
@@ -119,7 +119,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
                         );
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "process has value which is not a number", "Error",
+                    JOptionPane.showMessageDialog(null, "Tiến trình có giá trị không phải là số", "Error",
                             JOptionPane.ERROR_MESSAGE);
                     flag = false;
                 }
@@ -137,7 +137,7 @@ public class EastPanel_AddProcessPanel extends JPanel {
                     }
 
                     if (index != -1) { // nếu bị trùng
-                        int option = JOptionPane.showConfirmDialog(null, "Your process is duplicated. Do you want to rewrite it?", "Warning", JOptionPane.YES_NO_OPTION);
+                        int option = JOptionPane.showConfirmDialog(null, "Tiến trình bị trùng. Hãy kiểm tra lại!", "Warning", JOptionPane.YES_NO_OPTION);
                         // mún override cái bị trùng hay không?
                         // Ok 0
                         // No 1
@@ -305,14 +305,14 @@ public class EastPanel_AddProcessPanel extends JPanel {
                             burstTime = Integer.parseInt(values[2]);
                             priority = Integer.parseInt(values[3]);
                         } catch (NumberFormatException e) {
-                            JOptionPane.showMessageDialog(null, "process has value which is not a number", "Error",
+                            JOptionPane.showMessageDialog(null, "Tiến trình có giá trị không phải là số", "Error",
                                     JOptionPane.ERROR_MESSAGE);
                             return -1; // thoát ra và không cần xử lý
                         }
 
                         arr.add(new Row(processName, arrivalTime, burstTime, priority));
                     } else {
-                        JOptionPane.showMessageDialog(null, "Wrong content file", "Error File", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Nội dung file sai!", "Error File", JOptionPane.ERROR_MESSAGE);
                         return -1;
                     }
                 }
