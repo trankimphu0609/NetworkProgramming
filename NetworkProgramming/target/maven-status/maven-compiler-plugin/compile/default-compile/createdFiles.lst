@@ -1,9 +1,7 @@
 UI\model\navItem.class
-Client\Choose_Server$2.class
 Server\LapLichCPU\Algorithms\SJF.class
 Client\LapLichCPU\Entity\Row.class
 Client\Dijkstra\NodeEdge.class
-UI\Client$3.class
 Client\LapLichCPU\Control\Process_TablePanelAction.class
 Server\LapLichCPU\Algorithms\CPUScheduler.class
 Client\LapLichCPU\App\EastPanel_TableShowProcess.class
@@ -14,8 +12,6 @@ Server\LapLichCPU\Entity\ResultAfterExecuteAlgorithm.class
 Server\LapLichCPU\Algorithms\RR.class
 Client\LapLichCPU\Entity\ProcessResult.class
 Client\Dijkstra\NodeGraph.class
-Client\Choose_Server$3.class
-Client\Choose_Server.class
 Server\LapLichCPU\ExecuteCPUAlgorithm.class
 Client\LapLichCPU\App\EastPanel_TableShowProcess$3.class
 Server\Dijkstra\Dijkstra.class
@@ -38,13 +34,11 @@ Client\LapLichCPU\Constant\Constant.class
 Client\Dijkstra\NodeGraph$1.class
 Client\LapLichCPU\App\CenterPanel.class
 Server\LapLichCPU\Algorithms\SRT.class
-Client\Choose_Server$1.class
 Client\LapLichCPU\Control\Process_TablePanelAction$1.class
 Client\LapLichCPU\App\EastPanel_ChooseTypeAlgorithmPanel$1.class
 UI\model\header.class
 Client\Dijkstra\MainDijkstra.class
 Client\LapLichCPU\App\EastPanel_TableShowProcess$2.class
-Client\Choose_Server$4.class
 Server\LapLichCPU\Algorithms\Utility.class
 UI\Client.class
 Client\LapLichCPU\App\EastPanel_ChooseTypeAlgorithmPanel.class

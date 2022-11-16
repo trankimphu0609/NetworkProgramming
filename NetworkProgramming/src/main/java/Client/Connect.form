@@ -7,6 +7,7 @@
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
       <Point value="[470, 160]"/>
     </Property>
+    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -85,9 +86,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\DAIHOC\Nam4\HKI\LapTrinhMang\DoAn\NetworkProgramming\NetworkProgramming\src\main\java\img\business-icon.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="&#x1ee8;NG D&#x1ee4;NG T&#xcc;M &#x110;&#x1af;&#x1edc;NG &#x110;I NG&#x1eae;N NH&#x1ea4;T V&#xc0; L&#x1eac;P L&#x1eca;CH CPU"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="1"/>

@@ -4,6 +4,7 @@
  */
 package UI;
 
+import Client.Connect;
 import Client.Dijkstra.MainDijkstra;
 import Client.LapLichCPU.App.MainPanel;
 import UI.model.header;
@@ -50,7 +51,7 @@ import javax.swing.JScrollPane;
  * @author Trần Kim Phú
  */
 public class Client extends JFrame implements MouseListener {
-
+    
     private boolean flag = true;
     private JPanel header, nav, main;
     private int DEFAULT_HEIGHT = 650, DEFALUT_WIDTH = 1240;
@@ -63,7 +64,7 @@ public class Client extends JFrame implements MouseListener {
     BufferedReader stdIn = null;
     private final int keySize = 2048;
     public static int port = 4334;
-
+    
     public static PublicKey pubServer; // server key
 
     public static PublicKey pubClient; // client key
@@ -73,55 +74,55 @@ public class Client extends JFrame implements MouseListener {
         socket = new Socket(address, port);
         out = new DataOutputStream(socket.getOutputStream());
         in = new DataInputStream(socket.getInputStream());
-
+        
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA"); // General public and private keys
         keyPairGenerator.initialize(keySize, new SecureRandom());
         KeyPair kp = keyPairGenerator.genKeyPair();
         pubClient = kp.getPublic();
         priClient = kp.getPrivate();
-
+        
         out.write(pubClient.getEncoded()); // gửi khoá public từ Client tới Server
         out.flush();
-
+        
         byte[] publicKeyBytes = new byte[keySize]; // nhận public key từ Server
         in.read(publicKeyBytes, 0, keySize);
         X509EncodedKeySpec ks = new X509EncodedKeySpec(publicKeyBytes);
         KeyFactory kf = KeyFactory.getInstance("RSA");
-
+        
         pubServer = kf.generatePublic(ks); // lưu lại
 
         view();
     }
-
+    
     public static String socketReadLine() throws Exception {
         String result = "";
-
+        
         int blockCount = in.readInt(); // lấy tổng số block cần phải nhận
 
         for (int i = 0; i < blockCount; i++) { // lấy tất cả các block
             String line = in.readUTF();
-
+            
             Cipher c = Cipher.getInstance("RSA"); // dịch block
             c.init(Cipher.DECRYPT_MODE, priClient);
             byte decryptOut[] = c.doFinal(Base64.getDecoder().decode(line));
-
+            
             result += new String(decryptOut);
         }
-
+        
         System.out.println("socketReadline:" + result);
         return result;
     }
-
+    
     public static void socketSend(String line) throws Exception {
-
+        
         Cipher c = Cipher.getInstance("RSA"); // để mã hoá chuỗi gửi cho Server
         c.init(Cipher.ENCRYPT_MODE, pubServer); // dùng pubServer
 
         final RSAPublicKey rsapub = (RSAPublicKey) pubClient; // lấy độ dài bit của pub
         int keyBitLength = rsapub.getModulus().bitLength();
-
+        
         byte[] lineBytes = line.getBytes();
-
+        
         int validSize = keyBitLength / 8 - 11; // chuẩn độ dài mã hoá RSA hợp lệ
 
         int blockCount = (int) Math.ceil((float) lineBytes.length / validSize);
@@ -129,28 +130,44 @@ public class Client extends JFrame implements MouseListener {
 
         out.writeInt(blockCount); // trả về tổng số block cho Server
         out.flush();
-
+        
         ByteBuffer bb = ByteBuffer.wrap(lineBytes); // trả từng block theo độ dài hợp lệ
         for (int i = 0; i < blockCount; i++) {
-
+            
             int minLength = Math.min(validSize, remaining); // lấy độ dài nhỏ nhất
             remaining -= minLength;
-
+            
             byte[] block = new byte[minLength]; // lấy giá trị cho block
             bb.get(block, 0, minLength);
-
+            
             byte encryptOut[] = c.doFinal(block); // mã hoá và trả về
             String strEncrypt = Base64.getEncoder().encodeToString(encryptOut);
-
+            
             out.writeUTF(strEncrypt);
             out.flush();
         }
     }
-
+    
     public Client() throws FileNotFoundException, Exception {
         Toolkit screen = Toolkit.getDefaultToolkit();
         view();
         System.out.println("heheh");
+    }
+    
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Connect form = new Connect();
+                    form.setLocationRelativeTo(null);
+                    form.pack();
+                    form.setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 
     public void view() throws FileNotFoundException {
@@ -168,54 +185,53 @@ public class Client extends JFrame implements MouseListener {
         header = new JPanel(null);
         header.setBackground(new Color(25, 25, 34));
         header.setPreferredSize(new Dimension(DEFALUT_WIDTH, 40));
-
+        
         header hmain = new header(DEFALUT_WIDTH, 40);
 
         //Tạo btn EXIT & MINIMIZE
         navItem exit = new navItem("", new Rectangle(DEFALUT_WIDTH - 50, -8, 50, 50), "exit_25px.png", "exit_25px.png", "exit_hover_25px.png", new Color(240, 71, 74));
         navItem mini = new navItem("", new Rectangle(DEFALUT_WIDTH - 100, -8, 50, 50), "minimize_25px.png", "minimize_25px.png", "minimize_hover_25px.png", new Color(80, 80, 80));
-
+        
         hmain.add(exit.isButton());
         hmain.add(mini.isButton());
-
+        
         exit.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 System.exit(0);
             }
         });
-
+        
         mini.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 setState(Frame.ICONIFIED);
             }
         });
-
+        
         header.add(hmain);
 
         // nav
         nav = new JPanel(null);
         nav.setBackground(new Color(55, 63, 81));
         nav.setPreferredSize(new Dimension(220, DEFAULT_HEIGHT));
-
+        
         navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm ( Tên btn : icon : icon hover )
         navItem.add("TÌM ĐƯỜNG:icons8-combo-chart-30.png:icons8-combo-chart-30.png");
         navItem.add("LẬP LỊCH:icons8-planner-30.png:icons8-planner-30.png");
-
+        
         outNav();
-
 
         // phần main (hiển thị)
         main = new JPanel(null);
         navObj.get(0).doActive();
         changeMainInfo(0);
-
+        
         add(header, BorderLayout.NORTH);
         add(nav, BorderLayout.WEST);
         add(main, BorderLayout.CENTER);
-
+        
         setVisible(true);
     }
-
+    
     public void outNav() {
         navObj.clear();
         for (int i = 0; i < navItem.size(); i++) {
@@ -241,7 +257,7 @@ public class Client extends JFrame implements MouseListener {
         repaint();
         revalidate();
     }
-
+    
     public void changeMainInfo(int i) throws FileNotFoundException {
         // đổi phần hiển thị khi bấm btn trên menu
         switch (i) {
@@ -257,10 +273,10 @@ public class Client extends JFrame implements MouseListener {
                 main.repaint();
                 main.revalidate();
                 break;
-
+            
         }
     }
-
+    
     @Override
     public void mouseClicked(java.awt.event.MouseEvent e) {
         for (int i = 0; i < navObj.size(); i++) {
@@ -277,21 +293,21 @@ public class Client extends JFrame implements MouseListener {
             }
         }
     }
-
+    
     @Override
     public void mousePressed(MouseEvent me) {
     }
-
+    
     @Override
     public void mouseReleased(MouseEvent me) {
     }
-
+    
     @Override
     public void mouseEntered(MouseEvent me) {
     }
-
+    
     @Override
     public void mouseExited(MouseEvent me) {
     }
-
+    
 }
