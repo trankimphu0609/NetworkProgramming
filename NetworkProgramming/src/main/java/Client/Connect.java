@@ -65,7 +65,6 @@ public class Connect extends javax.swing.JFrame {
 
         btnConnect.setBackground(new java.awt.Color(68, 187, 236));
         btnConnect.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnConnect.setForeground(new java.awt.Color(255, 255, 255));
         btnConnect.setText("KẾT NỐI");
         btnConnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +74,6 @@ public class Connect extends javax.swing.JFrame {
 
         btnExit.setBackground(new java.awt.Color(206, 81, 80));
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("THOÁT");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
