@@ -1,4 +1,4 @@
-# Project - Dijkstra and CPU Schedule
+# Project - Dijkstra and CPU Scheduler
 
 ## Member:
 
